@@ -26,5 +26,19 @@ public class JogadorDao {
 		}
 		return false;
 	}
+	
+	public void atualizar(Jogador jogador) {
+		String sql = "UPDATE jogador set nome = ?, pontuacao = ? WHERE id = ?;";
+		
+		try(PreparedStatement statement = conexao.prepareStatement(sql)){
+			statement.setString(1, jogador.getNome());
+			statement.setInt(2, jogador.getPontuacao());
+			statement.setLong(3, jogador.getId());
+			statement.executeUpdate();
+			conexao.commit();
+		}catch (Exception e) {
+			LogUtil.getLogger(JogadorDao.class).error(e.getCause().toString());
+		}
+	}
 
 }
