@@ -1,5 +1,7 @@
 package br.com.showmilhao.application;
 	
+import java.io.File;
+
 import br.com.showmilhao.util.LogUtil;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -22,6 +24,10 @@ public class Main extends Application {
 			
 			ContinuousReprodution reprodution = new ContinuousReprodution(FILE_MUSIC, Boolean.TRUE);
 			reprodution.start();
+			/*Jlayer layer = new Jlayer();
+			File mp3 = new File("src/main/resources/song/tire-a-carta-do-baralho-voice.mp3");
+			layer.tocar(mp3);
+			layer.start();*/
 			
 		} catch(Exception e) {
 			e.printStackTrace();
