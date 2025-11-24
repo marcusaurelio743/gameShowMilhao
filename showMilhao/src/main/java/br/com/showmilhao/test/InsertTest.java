@@ -6,7 +6,7 @@ import br.com.showmilhao.util.LogUtil;
 
 public class InsertTest {
 	private static JogadorDao dao = new JogadorDao();
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 		Jogador jogador = new Jogador();
 		/*jogador.setNome("Maria");
 		jogador.setPontuacao(500);
