@@ -1,5 +1,6 @@
 package br.com.showmilhao.application;
 	
+import br.com.showmilhao.util.LogUtil;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -11,6 +12,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			primaryStage.setTitle("Janela inicial do jogo");
+			LogUtil.getLogger(Main.class).info(primaryStage.getTitle());
 			BorderPane root = new BorderPane();
 			Scene scene = new Scene(root,400,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
