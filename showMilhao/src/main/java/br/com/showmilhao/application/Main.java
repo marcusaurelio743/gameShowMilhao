@@ -1,7 +1,10 @@
 package br.com.showmilhao.application;
 	
 import java.io.File;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
+import br.com.showmilhao.connection.FactoryConnection;
 import br.com.showmilhao.util.LogUtil;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -28,6 +31,18 @@ public class Main extends Application {
 			File mp3 = new File("src/main/resources/song/tire-a-carta-do-baralho-voice.mp3");
 			layer.tocar(mp3);
 			layer.start();*/
+			Connection connection = FactoryConnection.getConexao();
+			String sql = "INSERT INTO jogador(id,nome,pontuacao) VALUES($next_id,?,?);";
+			try(PreparedStatement statement = connection.prepareStatement(sql)){
+				statement.setString(2, "Jogador Teste!");
+				statement.setInt(3, 60);
+				statement.execute();
+				connection.commit();
+				
+			}catch (Exception e) {
+				LogUtil.getLogger(Main.class).error(e.getCause().toString());
+			}
+			
 			
 		} catch(Exception e) {
 			e.printStackTrace();
