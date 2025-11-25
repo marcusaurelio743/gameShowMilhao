@@ -14,13 +14,15 @@ public class JogadorDao {
 	private Connection conexao;
 	private static final String QUERY_BUSCAR_TODOS = "SELECT * FROM jogador" ;
 	private static final String QUERY_BUSCAR_TODOS_RANKING ="SELECT * FROM jogador ORDER BY pontuacao DESC LIMIT 10";
-	
+	private static final String QUERY_INSERT = "INSERT INTO jogador(id,nome,pontuacao) VALUES($next_id,?,?);" ;
+	private static final String QUERY_UPDATE = "UPDATE jogador set nome = ?, pontuacao = ? WHERE id = ?;";
+	private static final String QUERY_DELETE = "DELETE FROM jogador";
 	public JogadorDao() {
 		conexao = FactoryConnection.getConexao();
 	}
 	public boolean adicionar(Jogador jogador) {
-		String sql = "INSERT INTO jogador(id,nome,pontuacao) VALUES($next_id,?,?);";
-		try(PreparedStatement statement = conexao.prepareStatement(sql)){
+		
+		try(PreparedStatement statement = conexao.prepareStatement(QUERY_INSERT)){
 			statement.setString(2, jogador.getNome());
 			statement.setInt(3, jogador.getPontuacao());
 			statement.execute();
@@ -32,10 +34,9 @@ public class JogadorDao {
 		return false;
 	}
 	
-	public void atualizar(Jogador jogador) {
-		String sql = "UPDATE jogador set nome = ?, pontuacao = ? WHERE id = ?;";
+	public void atualizar(Jogador jogador) { 
 		
-		try(PreparedStatement statement = conexao.prepareStatement(sql)){
+		try(PreparedStatement statement = conexao.prepareStatement(QUERY_UPDATE)){
 			statement.setString(1, jogador.getNome());
 			statement.setInt(2, jogador.getPontuacao());
 			statement.setLong(3, jogador.getId());
@@ -77,6 +78,18 @@ public class JogadorDao {
 	
 	public List<Jogador> listarRanking(){
 		return buscar(QUERY_BUSCAR_TODOS_RANKING);
+	}
+	
+	public void zerarRanking() {
+		try {
+			try(PreparedStatement statement = conexao.prepareStatement(QUERY_DELETE)){
+				statement.execute();
+				conexao.commit();
+			}
+			
+		} catch (Exception e) {
+			LogUtil.getLogger(JogadorDao.class).error(e.getCause().toString());
+		}
 	}
 
 }
