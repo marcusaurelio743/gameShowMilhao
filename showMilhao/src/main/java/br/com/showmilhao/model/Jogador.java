@@ -53,4 +53,10 @@ public class Jogador {
 		this.linha = linha;
 	}
 
+	@Override
+	public String toString() {
+		return "Jogador [id=" + id + ", nome=" + nome + ", pontuacao=" + pontuacao + ", linha=" + linha + "]";
+	}
+	
+
 }
