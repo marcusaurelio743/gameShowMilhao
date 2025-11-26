@@ -12,6 +12,8 @@ public class PerguntaDao {
 	private Connection conexao;
 	private static final String QUERY_INSERIR= "INSERT INTO pergunta(id,nivel,enumciado,alternativa1,alternativa2,alternativa3,resposta)"
 			+ " VALUES ($next_id,?,?,?,?,?,?)";
+	private static final String OK = "Processo Concluido";
+	private static final int MESSAGE_TYPE = JOptionPane.INFORMATION_MESSAGE;
 	
 	public PerguntaDao() {
 		this.conexao = FactoryConnection.getConexao();
@@ -30,7 +32,7 @@ public class PerguntaDao {
 				statement.execute();
 				conexao.commit();
 				
-				JOptionPane.showMessageDialog(null, "Pergunta Adicionada com sucesso !","Processo Concluido", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Pergunta Adicionada com sucesso !",OK, MESSAGE_TYPE);
 			}
 			
 		}catch (Exception e) {
