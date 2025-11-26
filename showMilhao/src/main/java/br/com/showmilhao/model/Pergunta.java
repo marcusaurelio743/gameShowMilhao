@@ -3,6 +3,7 @@ package br.com.showmilhao.model;
 public class Pergunta {
 	private Long id;
 	private String nivel;
+	private String enumciado;
 	private String alter1;
 	private String alter2;
 	private String alter3;
@@ -42,6 +43,12 @@ public class Pergunta {
 	}
 	public void setResp(String resp) {
 		this.resp = resp;
+	}
+	public String getEnumciado() {
+		return enumciado;
+	}
+	public void setEnumciado(String enumciado) {
+		this.enumciado = enumciado;
 	}
 	public Pergunta(Long id, String nivel, String alter1, String alter2, String alter3, String resp) {
 		super();

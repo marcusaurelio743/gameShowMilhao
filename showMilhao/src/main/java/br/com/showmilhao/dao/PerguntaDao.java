@@ -1,0 +1,44 @@
+package br.com.showmilhao.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import javax.swing.JOptionPane;
+
+import br.com.showmilhao.connection.FactoryConnection;
+import br.com.showmilhao.model.Pergunta;
+
+public class PerguntaDao {
+	private Connection conexao;
+	private static final String QUERY_INSERIR= "INSERT INTO pergunta(id,nivel,enumciado,alternativa1,alternativa2,alternativa3,resposta)"
+			+ " VALUES ($next_id,?,?,?,?,?,?)";
+	
+	public PerguntaDao() {
+		this.conexao = FactoryConnection.getConexao();
+	}
+	
+	public void inserir(Pergunta pergunta) {
+		try {
+			try(PreparedStatement statement = conexao.prepareStatement(QUERY_INSERIR)){
+				statement.setString(2,pergunta.getNivel());
+				statement.setString(3, pergunta.getEnumciado());
+				statement.setString(4, pergunta.getAlter1());
+				statement.setString(5, pergunta.getAlter2());
+				statement.setString(6, pergunta.getAlter3());
+				statement.setString(7, pergunta.getResp());
+				
+				statement.execute();
+				conexao.commit();
+				
+				JOptionPane.showMessageDialog(null, "Pergunta Adicionada com sucesso !","Processo Concluido", JOptionPane.INFORMATION_MESSAGE);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+	}
+	
+	
+
+}

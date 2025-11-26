@@ -8,7 +8,6 @@ import java.util.List;
 
 import br.com.showmilhao.connection.FactoryConnection;
 import br.com.showmilhao.model.Jogador;
-import br.com.showmilhao.util.LogUtil;
 
 public class JogadorDao {
 	private Connection conexao;
@@ -29,7 +28,7 @@ public class JogadorDao {
 			conexao.commit();
 			return true;
 		}catch (Exception e) {
-			LogUtil.getLogger(JogadorDao.class).error(e.getCause().toString());
+			e.printStackTrace();
 		}
 		return false;
 	}
@@ -43,7 +42,7 @@ public class JogadorDao {
 			statement.executeUpdate();
 			conexao.commit();
 		}catch (Exception e) {
-			LogUtil.getLogger(JogadorDao.class).error(e.getCause().toString());
+			e.printStackTrace();
 		}
 	}
 	
@@ -67,7 +66,7 @@ public class JogadorDao {
 			}
 			
 		} catch (Exception e) {
-			LogUtil.getLogger(JogadorDao.class).error(e.getCause().toString());
+			e.printStackTrace();
 		}
 		 return jogadores;
 	}
@@ -88,7 +87,7 @@ public class JogadorDao {
 			}
 			
 		} catch (Exception e) {
-			LogUtil.getLogger(JogadorDao.class).error(e.getCause().toString());
+			e.printStackTrace();
 		}
 	}
 
