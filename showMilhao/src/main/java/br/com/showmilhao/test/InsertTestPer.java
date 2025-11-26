@@ -16,7 +16,8 @@ public class InsertTestPer {
 		pergunta.setResp("R pedro alvares cabral");
 		
 		//dao.inserir(pergunta);
-		dao.atualizar(pergunta);
+		//dao.atualizar(pergunta);
+		dao.deletar(2L);
 	}
 
 }

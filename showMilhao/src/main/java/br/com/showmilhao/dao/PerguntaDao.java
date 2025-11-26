@@ -14,6 +14,7 @@ public class PerguntaDao {
 			+ " VALUES ($next_id,?,?,?,?,?,?)";
 	private static final String QUERY_UPDATE= "UPDATE pergunta SET nivel=?,enumciado=?,"
 			+ "alternativa1=?,alternativa2=?,alternativa3=?,resposta=? WHERE id=?";
+	private static final String QUERY_DELETE = "DELETE FROM pergunta WHERE id=?";
 			
 	private static final String OK = "Processo Concluido";
 	private static final int MESSAGE_TYPE = JOptionPane.INFORMATION_MESSAGE;
@@ -66,6 +67,17 @@ public class PerguntaDao {
 		}
 	}
 	
+	public void deletar(Long id) {
+		try {
+			try(PreparedStatement statement = conexao.prepareStatement(QUERY_DELETE)){
+				statement.setLong(1,id);
+				statement.execute();
+				conexao.commit();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
-
 }
