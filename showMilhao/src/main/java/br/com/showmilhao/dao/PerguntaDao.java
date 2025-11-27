@@ -2,6 +2,10 @@ package br.com.showmilhao.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.swing.JOptionPane;
 
@@ -15,6 +19,8 @@ public class PerguntaDao {
 	private static final String QUERY_UPDATE= "UPDATE pergunta SET nivel=?,enumciado=?,"
 			+ "alternativa1=?,alternativa2=?,alternativa3=?,resposta=? WHERE id=?";
 	private static final String QUERY_DELETE = "DELETE FROM pergunta WHERE id=?";
+	private static final String QUERY_LISTAR_PERGUNTAS = "SELECT * FROM pergunta";
+	private static final String QUERY_LISTAR_PERGUNTAS_NIVEL = "SELECT * FROM pergunta WHERE nivel=?";
 			
 	private static final String OK = "Processo Concluido";
 	private static final int MESSAGE_TYPE = JOptionPane.INFORMATION_MESSAGE;
@@ -78,6 +84,39 @@ public class PerguntaDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private List<Pergunta> buscar(String sql,String nivel){
+		List<Pergunta> perguntas = new ArrayList<>();
+		try {
+			try(PreparedStatement statement = conexao.prepareStatement(sql)){
+				if(Objects.nonNull(nivel)) statement.setString(1, nivel);
+				ResultSet resultado = statement.executeQuery();
+				
+				while(resultado.next()) {
+					Pergunta pergunta = new Pergunta();
+					pergunta.setEnumciado(resultado.getString("enumciado"));
+					pergunta.setNivel(resultado.getString("nivel"));
+					pergunta.setId(resultado.getLong("id"));
+					pergunta.setAlter1(resultado.getString("alternativa1"));
+					pergunta.setAlter2(resultado.getString("alternativa2"));
+					pergunta.setAlter3(resultado.getString("alternativa3"));
+					pergunta.setResp(resultado.getString("resposta"));
+					perguntas.add(pergunta);
+				}
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		 return perguntas;
+	}
+	
+	public List<Pergunta> listar(){
+		return buscar(QUERY_LISTAR_PERGUNTAS, null);
+	}
+	public List<Pergunta> listar(String nivel){
+		return buscar(QUERY_LISTAR_PERGUNTAS_NIVEL, nivel);
 	}
 	
 }

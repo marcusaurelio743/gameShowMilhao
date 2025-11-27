@@ -67,6 +67,12 @@ public class Pergunta {
 		this.resp = "";
 		
 	}
+	@Override
+	public String toString() {
+		return "Pergunta [id=" + id + ", nivel=" + nivel + ", enumciado=" + enumciado + ", alter1=" + alter1
+				+ ", alter2=" + alter2 + ", alter3=" + alter3 + ", resp=" + resp + "]";
+	}
+	
 	
 	
 
