@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	private final static String FILE_MUSIC = "src/main/resources/song/som-abertura-2.mp3";
 	private final static String TELA_INICIAL = "/view/LayoutTelaInicial.fxml";
+	private final static String ESTILO_BOTOES = "/css/ButtonStyle.css";
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -18,7 +19,8 @@ public class Main extends Application {
 			Pane telaInicial = FXMLLoader.load(getClass().getResource(TELA_INICIAL));
 			
 			Scene scene = new Scene(telaInicial,780,600);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			telaInicial.getStylesheets().add(getClass().getResource(ESTILO_BOTOES).toExternalForm());
+			
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane  xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" layoutX="-28.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -19,11 +19,11 @@
             <Image url="@../img/logo-show-milhao.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="405.0" layoutY="278.0" mnemonicParsing="false" text="Jogar" />
-      <Button layoutX="405.0" layoutY="330.0" mnemonicParsing="false" text="Regras" />
-      <Button layoutX="405.0" layoutY="379.0" mnemonicParsing="false" text="Ranking" />
-      <Button layoutX="405.0" layoutY="434.0" mnemonicParsing="false" text="Perguntas" />
-      <JFXButton layoutX="687.0" layoutY="20.0" prefHeight="61.0" prefWidth="70.0" text="X" textFill="#e8e8e8">
+      <Button layoutX="352.0" layoutY="234.0" mnemonicParsing="false" text="Jogar" styleClass="defaultButton" />
+      <Button layoutX="349.0" layoutY="336.0" mnemonicParsing="false" text="Regras" styleClass="defaultButton" />
+      <Button layoutX="347.0" layoutY="432.0" mnemonicParsing="false" text="Ranking" styleClass="defaultButton" />
+      <Button layoutX="344.0" layoutY="517.0" mnemonicParsing="false" text="Perguntas" styleClass="defaultButton" />
+      <JFXButton id="closeButton" layoutX="687.0" layoutY="20.0" prefHeight="61.0" prefWidth="70.0" text="X" textFill="#e8e8e8">
          <font>
             <Font name="System Bold" size="28.0" />
          </font>
