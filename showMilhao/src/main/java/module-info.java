@@ -4,6 +4,8 @@ module showMilhao {
 	requires jlayer;
 	requires java.sql;
 	requires java.desktop;
+	requires javafx.fxml;
+	requires javafx.graphics;
 	
 	opens br.com.showmilhao.application to javafx.graphics, javafx.fxml;
 }

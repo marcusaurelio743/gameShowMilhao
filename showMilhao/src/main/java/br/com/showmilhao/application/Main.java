@@ -1,21 +1,23 @@
 package br.com.showmilhao.application;
 	
-import br.com.showmilhao.util.LogUtil;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
 public class Main extends Application {
 	private final static String FILE_MUSIC = "src/main/resources/song/som-abertura-2.mp3";
+	private final static String TELA_INICIAL = "/view/LayoutTelaInicial.fxml";
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			primaryStage.setTitle("Janela inicial do jogo");
-			LogUtil.getLogger(Main.class).info(primaryStage.getTitle());
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
+			primaryStage.setTitle("Show do Milhão");
+			
+			Pane telaInicial = FXMLLoader.load(getClass().getResource(TELA_INICIAL));
+			
+			Scene scene = new Scene(telaInicial,780,600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
