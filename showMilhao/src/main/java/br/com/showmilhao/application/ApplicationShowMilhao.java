@@ -5,15 +5,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+ 
 
-
-public class Main extends Application {
+public class ApplicationShowMilhao extends Application {
 	private final static String FILE_MUSIC = "src/main/resources/song/som-abertura-2.mp3";
 	private final static String TELA_INICIAL = "/view/LayoutTelaInicial.fxml";
 	private final static String ESTILO_BOTOES = "/css/ButtonStyle.css";
+	private static Stage stage;
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			stage = primaryStage;
+			
 			primaryStage.setTitle("Show do Milhão");
 			
 			Pane telaInicial = FXMLLoader.load(getClass().getResource(TELA_INICIAL));
@@ -37,8 +45,8 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
-	
-	public static void main(String[] args) {
-		launch(args);
+	public static void chageScanner(Scene scene) {
+		stage.setScene(scene);
 	}
+	
 }

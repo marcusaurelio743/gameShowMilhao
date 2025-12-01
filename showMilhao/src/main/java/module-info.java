@@ -1,4 +1,5 @@
 module showMilhao {
+	opens br.com.showmilhao.controller;
 	requires javafx.controls;
 	requires log4j;
 	requires jlayer;

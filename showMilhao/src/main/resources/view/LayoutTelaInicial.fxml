@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane  xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane  xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.showmilhao.controller.ControllerLayoutTelaInicial">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" layoutX="-28.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -19,7 +19,7 @@
             <Image url="@../img/logo-show-milhao.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="352.0" layoutY="234.0" mnemonicParsing="false" text="Jogar" styleClass="defaultButton" />
+      <Button layoutX="352.0" layoutY="234.0" mnemonicParsing="false" onAction="#jogar" text="Jogar" styleClass="defaultButton" />
       <Button layoutX="349.0" layoutY="336.0" mnemonicParsing="false" text="Regras" styleClass="defaultButton" />
       <Button layoutX="347.0" layoutY="432.0" mnemonicParsing="false" text="Ranking" styleClass="defaultButton" />
       <Button layoutX="344.0" layoutY="517.0" mnemonicParsing="false" text="Perguntas" styleClass="defaultButton" />
