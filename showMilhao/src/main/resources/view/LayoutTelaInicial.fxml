@@ -23,7 +23,7 @@
       <Button layoutX="349.0" layoutY="336.0" mnemonicParsing="false" text="Regras" styleClass="defaultButton" />
       <Button layoutX="347.0" layoutY="432.0" mnemonicParsing="false" text="Ranking" styleClass="defaultButton" />
       <Button layoutX="344.0" layoutY="517.0" mnemonicParsing="false" text="Perguntas" styleClass="defaultButton" />
-      <JFXButton id="closeButton" layoutX="687.0" layoutY="20.0" prefHeight="61.0" prefWidth="70.0" text="X" textFill="#e8e8e8">
+      <JFXButton id="closeButton" layoutX="687.0" layoutY="20.0" prefHeight="61.0" onAction="#fechar" prefWidth="70.0" text="X" textFill="#e8e8e8">
          <font>
             <Font name="System Bold" size="28.0" />
          </font>

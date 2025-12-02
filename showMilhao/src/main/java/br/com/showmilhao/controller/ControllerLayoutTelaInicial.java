@@ -2,20 +2,21 @@ package br.com.showmilhao.controller;
 
 import java.io.IOException;
 
-import br.com.showmilhao.application.ApplicationShowMilhao;
+import br.com.showmilhao.util.ControllerUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 
 public class ControllerLayoutTelaInicial {
+	private static final String LAYOUT_TELA = "/view/LayoutTelaNome.fxml";
+	private static final String CSS = "/css/ButtonStyle.css";
 	@FXML
 	private void jogar(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/LayoutTelaNome.fxml"));
-		pane.getStylesheets().add(getClass().getResource("/css/ButtonStyle.css").toExternalForm());
+		ControllerUtil.changeLayout(getClass(), LAYOUT_TELA, CSS);
 		
-		ApplicationShowMilhao.chageScanner(new Scene(pane,780,600));
+	}
+	@FXML
+	private void fechar() {
+		ControllerUtil.exit();
 	}
 
 }
