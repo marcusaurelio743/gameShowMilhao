@@ -9,10 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 
-public class ControllerLayoutTelaInicial {
+public class ControllerLayoutTelaNome {
 	@FXML
-	private void jogar(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/LayoutTelaNome.fxml"));
+	private void voltar(ActionEvent event) throws IOException {
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/LayoutTelaInicial.fxml"));
 		pane.getStylesheets().add(getClass().getResource("/css/ButtonStyle.css").toExternalForm());
 		
 		ApplicationShowMilhao.chageScanner(new Scene(pane,780,600));

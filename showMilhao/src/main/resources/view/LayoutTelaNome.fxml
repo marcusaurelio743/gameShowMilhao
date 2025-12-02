@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/25" fx:controller="br.com.showmilhao.controller.ControllerLayoutTelaNome" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -26,13 +26,13 @@
             <Font name="System Bold" size="28.0" />
          </font>
       </JFXButton>
-      <Label alignment="CENTER" layoutX="280.0" layoutY="278.0" prefWidth="289.0" text="Digite Seu Nome Aqui">
+      <Label alignment="CENTER" layoutX="280.0" layoutY="278.0" prefWidth="289.0" style="fx-background-color: white; -fx-prompt-text-fill: gray;" text="Digite Seu Nome Aqui" textFill="#fffefe">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Button layoutX="301.0" layoutY="398.0" mnemonicParsing="false" text="Voltar" />
-      <Button layoutX="472.0" layoutY="398.0" mnemonicParsing="false" text="Começar" />
-      <TextField layoutX="335.0" layoutY="323.0" />
+      <Button layoutX="301.0" layoutY="398.0" mnemonicParsing="false" onAction="#voltar" styleClass="defaultButton" text="Voltar" />
+      <Button layoutX="472.0" layoutY="398.0" mnemonicParsing="false" styleClass="defaultButton" text="Começar" />
+      <TextField layoutX="314.0" layoutY="323.0" prefHeight="25.0" prefWidth="232.0" />
    </children>
 </AnchorPane>
