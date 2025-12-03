@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane  xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.showmilhao.controller.ControllerLayoutTelaInicial">
+<AnchorPane  xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.showmilhao.controller.ControllerLayoutTelaInicial"  >
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" layoutX="-28.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
          <image>
