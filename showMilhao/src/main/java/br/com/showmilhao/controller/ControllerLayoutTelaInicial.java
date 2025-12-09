@@ -8,10 +8,16 @@ import javafx.fxml.FXML;
 
 public class ControllerLayoutTelaInicial {
 	private static final String LAYOUT_TELA = "/view/LayoutTelaNome.fxml";
+	private static final String LAYOUT_REGRAS = "/view/LayoutTelaRegra.fxml";
 	private static final String CSS = "/css/ButtonStyle.css";
 	@FXML
 	private void jogar(ActionEvent event) throws IOException {
 		ControllerUtil.changeLayout(getClass(), LAYOUT_TELA, CSS);
+		
+	}
+	@FXML
+	private void exibirRegras(ActionEvent event) throws IOException {
+		ControllerUtil.changeLayout(getClass(),LAYOUT_REGRAS, CSS);
 		
 	}
 	@FXML
