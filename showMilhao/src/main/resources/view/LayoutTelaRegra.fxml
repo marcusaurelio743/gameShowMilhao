@@ -36,7 +36,7 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2100.0" prefWidth="486.0">
                <children>
-                  <Label layoutX="38.0" fx:id="labelRegras" layoutY="-25.0" prefHeight="1900.0" prefWidth="434.0" text="Label" />
+                  <Label layoutX="38.0" id="labelRegras" fx:id="labelRegras" layoutY="-25.0" prefHeight="1900.0" prefWidth="434.0" wrapText="true" />
                </children>
             </AnchorPane>
         </content>

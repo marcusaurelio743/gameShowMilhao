@@ -10,6 +10,7 @@ public class ControllerLayoutTelaInicial {
 	private static final String LAYOUT_TELA = "/view/LayoutTelaNome.fxml";
 	private static final String LAYOUT_REGRAS = "/view/LayoutTelaRegra.fxml";
 	private static final String CSS = "/css/ButtonStyle.css";
+	private static final String CSS_REGRAS = "/css/RegrasStyle.css";
 	@FXML
 	private void jogar(ActionEvent event) throws IOException {
 		ControllerUtil.changeLayout(getClass(), LAYOUT_TELA, CSS);
@@ -17,7 +18,7 @@ public class ControllerLayoutTelaInicial {
 	}
 	@FXML
 	private void exibirRegras(ActionEvent event) throws IOException {
-		ControllerUtil.changeLayout(getClass(),LAYOUT_REGRAS, CSS);
+		ControllerUtil.changeLayout(getClass(),LAYOUT_REGRAS, CSS_REGRAS);
 		
 	}
 	@FXML

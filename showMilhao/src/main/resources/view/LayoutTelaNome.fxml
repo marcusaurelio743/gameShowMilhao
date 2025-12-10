@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/25" fx:controller="br.com.showmilhao.controller.ControllerLayoutTelaNome" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.showmilhao.controller.ControllerLayoutTelaNome">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -21,7 +21,7 @@
             <Image url="@../img/logo-show-milhao.jpg" />
          </image>
       </ImageView>
-      <JFXButton id="closeButton" layoutX="729.0" layoutY="21.0" text="X" textFill="#f2eded" onAction="#fechar">
+      <JFXButton id="closeButton" layoutX="692.0" layoutY="22.0" onAction="#fechar" text="X" textFill="#f2eded">
          <font>
             <Font name="System Bold" size="28.0" />
          </font>
