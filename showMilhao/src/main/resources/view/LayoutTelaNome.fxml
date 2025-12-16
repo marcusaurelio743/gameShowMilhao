@@ -33,6 +33,6 @@
       </Label>
       <Button layoutX="301.0" layoutY="398.0" mnemonicParsing="false" onAction="#voltar" styleClass="defaultButton" text="Voltar" />
       <Button layoutX="472.0" layoutY="398.0" mnemonicParsing="false" onAction="#startGame" styleClass="defaultButton" text="Começar" />
-      <TextField layoutX="314.0" layoutY="323.0" prefHeight="25.0" prefWidth="232.0" />
+      <TextField fx:id="nome" layoutX="314.0" layoutY="323.0" prefHeight="25.0" prefWidth="232.0" />
    </children>
 </AnchorPane>
