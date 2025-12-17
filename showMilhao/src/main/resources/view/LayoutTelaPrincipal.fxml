@@ -16,24 +16,24 @@
             <Image url="@../img/background.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="138.0" fitWidth="169.0" layoutX="508.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="74.0" fitWidth="163.0" layoutX="508.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/logo-show-milhao.jpg" />
          </image>
       </ImageView>
+      <Button layoutX="4.0" layoutY="3.0" mnemonicParsing="false" prefHeight="228.0" prefWidth="498.0" />
       <JFXButton id="closeButton" layoutX="692.0" layoutY="22.0" onAction="#fechar" text="X" textFill="#f2eded">
          <font>
             <Font name="System Bold" size="28.0" />
          </font>
       </JFXButton>
-      <Button layoutX="4.0" layoutY="3.0" mnemonicParsing="false" prefHeight="228.0" prefWidth="498.0" text="Button" />
-      <Button layoutX="5.0" layoutY="534.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="336.0" text="Button" />
-      <Button layoutX="5.0" layoutY="368.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="336.0" text="Button" />
-      <Button layoutX="5.0" layoutY="424.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="336.0" text="Button" />
-      <Button layoutX="5.0" layoutY="479.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="336.0" text="Button" />
-      <Button layoutX="14.0" layoutY="273.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="91.0" text="Button" />
-      <Button layoutX="234.0" layoutY="273.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="91.0" text="Button" />
-      <Button layoutX="123.0" layoutY="274.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="91.0" text="Button" />
+      <Button layoutX="5.0" layoutY="534.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="336.0" />
+      <Button layoutX="5.0" layoutY="368.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="336.0" />
+      <Button layoutX="5.0" layoutY="424.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="336.0" />
+      <Button layoutX="5.0" layoutY="479.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="336.0" />
+      <Button layoutX="14.0" layoutY="273.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="91.0" />
+      <Button layoutX="234.0" layoutY="273.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="91.0" />
+      <Button layoutX="123.0" layoutY="274.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="91.0" />
       <Label layoutX="31.0" layoutY="241.0" prefHeight="19.0" prefWidth="91.0" text="Universitário1" textAlignment="CENTER" textFill="#fff9f9">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -49,54 +49,153 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Pane layoutX="360.0" layoutY="311.0" prefHeight="278.0" prefWidth="389.0">
+      <Pane layoutX="361.0" layoutY="405.0" prefHeight="182.0" prefWidth="388.0">
          <children>
-            <ImageView fitHeight="81.0" fitWidth="81.0" layoutX="14.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="66.0" fitWidth="67.0" layoutX="14.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/cartas.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="81.0" fitWidth="84.0" layoutX="150.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="66.0" fitWidth="67.0" layoutX="150.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/pulo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="101.0" fitWidth="91.0" layoutX="276.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="74.0" fitWidth="75.0" layoutX="282.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/universitario.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="28.0" layoutY="128.0" prefHeight="35.0" prefWidth="67.0" text="Cartas" textFill="#fff7f7">
+            <JFXButton layoutX="26.0" layoutY="91.0" prefHeight="35.0" prefWidth="67.0" text="Cartas" textFill="#fff7f7">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="173.0" layoutY="203.0" prefHeight="35.0" prefWidth="67.0" text="Parar" textFill="#fff7f7">
+            <JFXButton layoutX="164.0" layoutY="136.0" prefHeight="35.0" prefWidth="67.0" text="Parar" textFill="#fff7f7">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="252.0" layoutY="125.0" prefHeight="35.0" prefWidth="133.0" text="Universitários" textFill="#fff7f7">
+            <JFXButton layoutX="253.0" layoutY="82.0" prefHeight="35.0" prefWidth="133.0" text="Universitários" textFill="#fff7f7">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="161.0" layoutY="124.0" prefHeight="35.0" prefWidth="67.0" text="Pulo" textFill="#fff7f7">
+            <JFXButton layoutX="161.0" layoutY="101.0" prefHeight="35.0" prefWidth="67.0" text="Pulo" textFill="#fff7f7">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXButton>
-            <Label layoutX="161.0" layoutY="22.0" prefHeight="17.0" prefWidth="47.0" text="Pulos:" textFill="#f2ecec">
+            <Label layoutX="150.0" layoutY="25.0" prefHeight="17.0" prefWidth="47.0" text="Pulos:" textFill="#f2ecec">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="208.0" layoutY="23.0" prefHeight="17.0" prefWidth="47.0" text="0" textFill="#f2ecec">
+            <Label layoutX="197.0" layoutY="25.0" prefHeight="17.0" prefWidth="47.0" text="0" textFill="#f2ecec">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
          </children>
       </Pane>
+      <Button layoutX="414.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" />
+      <Button layoutX="671.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" />
+      <Button layoutX="577.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" />
+      <Button layoutX="491.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" />
+      <Label layoutX="376.0" layoutY="339.0" text="R$ Acertar:" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="375.0" layoutY="384.0" text="R$ Parar:" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="375.0" layoutY="359.0" text="R$ Errar:" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="516.0" layoutY="90.0" text="Jogador:" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="516.0" layoutY="112.0" text="Rodada:" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="516.0" layoutY="136.0" text="Pergunta:" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="519.0" layoutY="161.0" text="Nivel:" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="584.0" layoutY="90.0" prefHeight="21.0" prefWidth="208.0" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="577.0" layoutY="112.0" prefHeight="21.0" prefWidth="208.0" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="588.0" layoutY="136.0" prefHeight="21.0" prefWidth="208.0" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="567.0" layoutY="161.0" prefHeight="21.0" prefWidth="208.0" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="456.0" layoutY="339.0" prefHeight="21.0" prefWidth="208.0" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="443.0" layoutY="360.0" prefHeight="21.0" prefWidth="208.0" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="441.0" layoutY="384.0" prefHeight="21.0" prefWidth="208.0" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="17.0" layoutY="382.0" prefHeight="21.0" prefWidth="28.0" text="1" textFill="#e8e5e5">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="17.0" layoutY="433.0" prefHeight="21.0" prefWidth="28.0" text="2&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;?import javafx.scene.control.Label?&gt;&lt;?import javafx.scene.text.Font?&gt;&lt;Label layoutX=&quot;17.0&quot; layoutY=&quot;382.0&quot; prefHeight=&quot;21.0&quot; prefWidth=&quot;28.0&quot; text=&quot;1&quot; textFill=&quot;#e8e5e5&quot; xmlns=&quot;http://javafx.com/javafx/25&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot;&gt;   &lt;font&gt;      &lt;Font size=&quot;17.0&quot; /&gt;   &lt;/fnt&gt;&lt;/Label&gt;" textFill="#e8e5e5">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="17.0" layoutY="433.0" prefHeight="21.0" prefWidth="28.0" text="2" textFill="#e8e5e5">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="488.0" prefHeight="21.0" prefWidth="28.0" text="3" textFill="#e8e5e5">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="543.0" prefHeight="21.0" prefWidth="28.0" text="4" textFill="#e8e5e5">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
