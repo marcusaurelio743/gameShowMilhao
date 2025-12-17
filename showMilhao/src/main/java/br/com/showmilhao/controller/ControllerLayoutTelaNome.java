@@ -22,6 +22,7 @@ public class ControllerLayoutTelaNome implements Initializable {
 	private static final String  LAYOUT_TELA_INICIAL = "/view/LayoutTelaInicial.fxml";
 	private static final String  LAYOUT_TELA_PRINCIPAL = "/view/LayoutTelaPrincipal.fxml";
 	private static final String  CSS = "/css/ButtonStyle.css";
+	private static final String  CSS_PRINCIPAL = "/css/PrincipalStyle.css";
 	
 	private JogadorService service;
 	
@@ -54,7 +55,7 @@ public class ControllerLayoutTelaNome implements Initializable {
 			JOptionPane.showMessageDialog(null, "Informe O Nome do Jogador!!","Atenção",JOptionPane.INFORMATION_MESSAGE);
 		}
 		if(jogadorSalvo) {
-			ControllerUtil.changeLayout(getClass(), LAYOUT_TELA_PRINCIPAL, CSS);
+			ControllerUtil.changeLayout(getClass(), LAYOUT_TELA_PRINCIPAL, CSS_PRINCIPAL);
 			startVoice(SOM_INICIO_GAME);
 		}
 		

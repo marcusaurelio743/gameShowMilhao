@@ -17,7 +17,7 @@ public class InsertTest {
 		jogador.setId(2L);
 		dao.atualizar(jogador);*/
 		 
-		//dao.zerarRanking();
+		dao.zerarRanking();
 	}
 
 }
