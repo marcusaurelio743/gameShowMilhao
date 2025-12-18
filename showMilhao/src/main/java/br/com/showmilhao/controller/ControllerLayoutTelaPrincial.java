@@ -19,6 +19,18 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	
 	@FXML
 	private Label labelNomeJogador;
+	@FXML
+	private Label labelNumeroRodada;
+	@FXML
+	private Label labelNumeroPergunta;
+	@FXML
+	private Label labelNivel;
+	@FXML
+	private Label labelErrar;
+	@FXML
+	private Label labelParar;
+	@FXML
+	private Label labelAcertar;
 	
 	@FXML
 	private void fechar() {
@@ -28,12 +40,23 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		setNome();
+		initLabels();
 	}
 	
 	private void setNome() {
 		Jogador jogador = jogadorService.listar()
 							.stream().reduce((jogador1,jogador2) -> jogador2).orElseThrow();
 		labelNomeJogador.setText(jogador.getNome());
+	}
+	
+	private void initLabels() {
+		labelAcertar.setText("1.000,00");
+		labelErrar.setText("0,00");
+		labelParar.setText("0,00");
+		labelNumeroRodada.setText("1");
+		labelNivel.setText("Fácil");
+		labelNumeroPergunta.setText("1");
+		
 	}
 
 }
