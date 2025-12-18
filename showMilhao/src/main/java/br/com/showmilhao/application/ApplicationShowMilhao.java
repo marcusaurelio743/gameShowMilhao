@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 public class ApplicationShowMilhao extends Application {
 	private final static String FILE_MUSIC = "src/main/resources/song/som-abertura-2.mp3";
 	private final static String TELA_INICIAL = "/view/LayoutTelaInicial.fxml";
-	private final static String ESTILO_BOTOES = "/css/ButtonStyle.css";
+	private final static String ESTILO_BOTOES = "/css/ButtonStyle.css"; 
 	private static Stage stage;
 	
 	public static void main(String[] args) {
