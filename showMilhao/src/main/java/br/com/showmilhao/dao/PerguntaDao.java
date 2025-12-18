@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import javax.swing.JOptionPane;
-
 import br.com.showmilhao.connection.FactoryConnection;
 import br.com.showmilhao.model.Pergunta;
 
@@ -21,15 +19,12 @@ public class PerguntaDao {
 	private static final String QUERY_DELETE = "DELETE FROM pergunta WHERE id=?";
 	private static final String QUERY_LISTAR_PERGUNTAS = "SELECT * FROM pergunta";
 	private static final String QUERY_LISTAR_PERGUNTAS_NIVEL = "SELECT * FROM pergunta WHERE nivel=?";
-			
-	private static final String OK = "Processo Concluido";
-	private static final int MESSAGE_TYPE = JOptionPane.INFORMATION_MESSAGE;
 	
 	public PerguntaDao() {
 		this.conexao = FactoryConnection.getConexao();
 	}
 	
-	public void inserir(Pergunta pergunta) {
+	public Pergunta inserir(Pergunta pergunta) {
 		try {
 			try(PreparedStatement statement = conexao.prepareStatement(QUERY_INSERIR)){
 				statement.setString(2,pergunta.getNivel());
@@ -41,13 +36,12 @@ public class PerguntaDao {
 				
 				statement.execute();
 				conexao.commit();
-				
-				JOptionPane.showMessageDialog(null, "Pergunta Adicionada com sucesso !",OK, MESSAGE_TYPE);
+				return pergunta;
 			}
 			
 		}catch (Exception e) {
 			e.printStackTrace();
-			
+			return null;
 		}
 	}
 	
@@ -63,8 +57,6 @@ public class PerguntaDao {
 				statement.setLong(7, pergunta.getId());
 				statement.execute();
 				conexao.commit();
-				
-				JOptionPane.showMessageDialog(null, "Modificações realizada com sucesso!",OK, MESSAGE_TYPE);
 			}
 			
 		}catch (Exception e) {
@@ -73,16 +65,18 @@ public class PerguntaDao {
 		}
 	}
 	
-	public void deletar(Long id) {
+	public boolean deletar(Long id) {
 		try {
 			try(PreparedStatement statement = conexao.prepareStatement(QUERY_DELETE)){
 				statement.setLong(1,id);
 				statement.execute();
 				conexao.commit();
+				return Boolean.TRUE;
 			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			return Boolean.FALSE;
 		}
 	}
 	

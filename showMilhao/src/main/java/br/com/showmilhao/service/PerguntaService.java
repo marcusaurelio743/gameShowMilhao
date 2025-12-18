@@ -1,12 +1,16 @@
 package br.com.showmilhao.service;
 
 import java.util.List;
+import java.util.Objects;
+
+import javax.swing.JOptionPane;
 
 import br.com.showmilhao.dao.PerguntaDao;
 import br.com.showmilhao.model.Pergunta;
 
 public class PerguntaService {
-	
+	private static final String OK = "Processo Concluido";
+	private static final int MESSAGE_TYPE = JOptionPane.INFORMATION_MESSAGE;
 	private PerguntaDao dao;
 	
 	public PerguntaService() {
@@ -14,14 +18,21 @@ public class PerguntaService {
 	}
 	
 	public void inserir(Pergunta pergunta) {
-		dao.inserir(pergunta);
+		Pergunta perguntaRetornada = dao.inserir(pergunta);
+		if(Objects.nonNull(perguntaRetornada)) {
+			JOptionPane.showMessageDialog(null, "Pergunta Adicionada com sucesso !",OK, MESSAGE_TYPE);
+		}
 	}
 	
 	public void atualizar(Pergunta pergunta) {
 		dao.atualizar(pergunta);
+		JOptionPane.showMessageDialog(null, "Modificações realizada com sucesso!",OK, MESSAGE_TYPE);
 	}
 	public void deletar(Long id) {
-		dao.deletar(id);
+		boolean removido = dao.deletar(id);
+		if(removido)
+			JOptionPane.showMessageDialog(null, "Pergunta Removida com sucesso!",OK, MESSAGE_TYPE);
+		  
 	}
 	public List<Pergunta> listar(){
 		return dao.listar();
