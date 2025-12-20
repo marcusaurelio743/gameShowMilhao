@@ -50,7 +50,7 @@ public class Pergunta {
 	public void setEnumciado(String enumciado) {
 		this.enumciado = enumciado;
 	}
-	public Pergunta(Long id, String nivel, String alter1, String alter2, String alter3, String resp) {
+	public Pergunta(Long id, String nivel,String enunciado, String alter1, String alter2, String alter3, String resp) {
 		super();
 		this.id = id;
 		this.nivel = nivel;
@@ -58,6 +58,7 @@ public class Pergunta {
 		this.alter2 = alter2;
 		this.alter3 = alter3;
 		this.resp = resp;
+		this.enumciado = enunciado;
 	}
 	public Pergunta() {
 		this.alter1 = "";
@@ -65,6 +66,7 @@ public class Pergunta {
 		this.alter3 = "";
 		this.nivel = "";
 		this.resp = "";
+		this.enumciado = "";
 		
 	}
 	@Override
