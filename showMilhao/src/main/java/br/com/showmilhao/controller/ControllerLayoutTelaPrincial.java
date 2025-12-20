@@ -39,17 +39,18 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		setNome();
+		ControllerUtil.startVoice("src/main/resources/song/1-mil-reais-voice.mp3");
 		initLabels();
 	}
 	
-	private void setNome() {
-		Jogador jogador = jogadorService.listar()
+	private Jogador getNome() {
+		return  jogadorService.listar()
 							.stream().reduce((jogador1,jogador2) -> jogador2).orElseThrow();
-		labelNomeJogador.setText(jogador.getNome());
+		
 	}
 	
 	private void initLabels() {
+		labelNomeJogador.setText(getNome().getNome());
 		labelAcertar.setText("1.000,00");
 		labelErrar.setText("0,00");
 		labelParar.setText("0,00");

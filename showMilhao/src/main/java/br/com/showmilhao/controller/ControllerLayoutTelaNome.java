@@ -45,7 +45,7 @@ public class ControllerLayoutTelaNome implements Initializable {
 	}
 	
 	@FXML
-	private void startGame(ActionEvent event) throws IOException {
+	private void startGame(ActionEvent event) throws IOException, InterruptedException {
 		boolean jogadorSalvo = false;
 		
 		if(!nome.getText().isEmpty()) {
@@ -55,8 +55,9 @@ public class ControllerLayoutTelaNome implements Initializable {
 			JOptionPane.showMessageDialog(null, "Informe O Nome do Jogador!!","Atenção",JOptionPane.INFORMATION_MESSAGE);
 		}
 		if(jogadorSalvo) {
-			ControllerUtil.changeLayout(getClass(), LAYOUT_TELA_PRINCIPAL, CSS_PRINCIPAL);
 			startVoice(SOM_INICIO_GAME);
+			Thread.sleep(2000);
+			ControllerUtil.changeLayout(getClass(), LAYOUT_TELA_PRINCIPAL, CSS_PRINCIPAL);
 		}
 		
 		
