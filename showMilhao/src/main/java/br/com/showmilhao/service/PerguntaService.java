@@ -40,6 +40,9 @@ public class PerguntaService {
 	public List<Pergunta> listar(String nivel){
 		return dao.listar(nivel);
 	}
+	public List<Pergunta> listar(String idsPerguntasFeitas, String nivel) {
+		return dao.listar(idsPerguntasFeitas, nivel);
+	}
 	
 
 }
