@@ -1,6 +1,8 @@
 package br.com.showmilhao.controller;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import br.com.showmilhao.model.Jogador;
@@ -12,6 +14,7 @@ import javafx.scene.control.Label;
 
 public class ControllerLayoutTelaPrincial implements Initializable {
 	private JogadorService jogadorService;
+	private List<Integer> idsPerguntasFeitas = new ArrayList<>();
 	
 	public ControllerLayoutTelaPrincial() {
 		jogadorService = new JogadorService();
@@ -58,6 +61,21 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		labelNivel.setText("Fácil");
 		labelNumeroPergunta.setText("1");
 		
+	}
+	
+	private String getIdPerguntasFeitas() {
+		String ids = "";
+		
+		if(!idsPerguntasFeitas.isEmpty()) {
+			ids+="(";
+			for(Integer id : idsPerguntasFeitas) {
+				ids+= id.toString() + ",";
+			}
+			ids = ids.substring(0, ids.length() - 1);
+			ids += ")";
+		}
+		
+		return ids;
 	}
 
 }

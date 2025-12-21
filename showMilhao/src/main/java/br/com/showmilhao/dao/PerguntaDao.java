@@ -12,6 +12,7 @@ import br.com.showmilhao.model.Pergunta;
 
 public class PerguntaDao {
 	private Connection conexao;
+	private static final String ORDER_BY_RANDOM_LIMIT = "ORDER BY RANDOM() LIMIT 1";
 	private static final String QUERY_INSERIR= "INSERT INTO pergunta(id,nivel,enumciado,alternativa1,alternativa2,alternativa3,resposta)"
 			+ " VALUES ($next_id,?,?,?,?,?,?)";
 	private static final String QUERY_UPDATE= "UPDATE pergunta SET nivel=?,enumciado=?,"
@@ -19,6 +20,9 @@ public class PerguntaDao {
 	private static final String QUERY_DELETE = "DELETE FROM pergunta WHERE id=?";
 	private static final String QUERY_LISTAR_PERGUNTAS = "SELECT * FROM pergunta";
 	private static final String QUERY_LISTAR_PERGUNTAS_NIVEL = "SELECT * FROM pergunta WHERE nivel=?";
+	private static final String QUERY_SELECT_NIVEL_RANDOM_LIMIT = "SELECT * FROM perguntas WHERE nivel = ? " + ORDER_BY_RANDOM_LIMIT;	
+	private static final String QUERY_SELECT_NIVEL_RANDOM_LIMIT_PERGUNTAS_FEITAS = "SELECT * FROM perguntas WHERE nivel = ? AND perguntas.id NOT IN ";
+
 	
 	public PerguntaDao() {
 		this.conexao = FactoryConnection.getConexao();
@@ -112,5 +116,10 @@ public class PerguntaDao {
 	public List<Pergunta> listar(String nivel){
 		return buscar(QUERY_LISTAR_PERGUNTAS_NIVEL, nivel);
 	}
+	public List<Pergunta> listar(String idsPerguntasFeitas, String nivel) {
+		String sql = idsPerguntasFeitas.isEmpty() ? QUERY_SELECT_NIVEL_RANDOM_LIMIT : QUERY_SELECT_NIVEL_RANDOM_LIMIT_PERGUNTAS_FEITAS + idsPerguntasFeitas + ORDER_BY_RANDOM_LIMIT;		
+		return buscar(sql, nivel);
+	}
+
 	
 }

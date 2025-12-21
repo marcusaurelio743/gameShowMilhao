@@ -40,7 +40,7 @@ public class ApplicationShowMilhao extends Application {
 			File mp3 = new File("src/main/resources/song/tire-a-carta-do-baralho-voice.mp3");
 			layer.tocar(mp3);
 			layer.start();*/
-			addPergunta();
+			//addPergunta();
 			
 			
 		} catch(Exception e) {
