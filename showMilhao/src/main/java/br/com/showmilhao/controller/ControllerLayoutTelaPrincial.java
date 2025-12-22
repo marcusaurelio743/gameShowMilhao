@@ -22,6 +22,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private List<Long> idsPerguntasFeitas = new ArrayList<>();
 	private PerguntaService perguntaService;
 	private int contadorPerguntasRespondida = 2;
+	private static final String NivelFacil = "Facil";
 	
 	public ControllerLayoutTelaPrincial() {
 		jogadorService = new JogadorService();
@@ -62,6 +63,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		ControllerUtil.startVoice("src/main/resources/song/1-mil-reais-voice.mp3");
 		initLabels();
+		processarPerguntasFacil();
 	}
 	
 	private Jogador getNome() {
@@ -150,6 +152,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 			}
 		});
 		
+		
 	}
 	private void setFlagRespostaCerta(String resposta) {
 		
@@ -159,6 +162,9 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	}
 	private void tratarAlternativaCorretaBotao(Button button) {
 		
+	}
+	private void processarPerguntasFacil() {
+		processarPerguntas(NivelFacil);
 	}
 
 }

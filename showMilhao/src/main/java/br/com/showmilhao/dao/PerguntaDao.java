@@ -20,8 +20,8 @@ public class PerguntaDao {
 	private static final String QUERY_DELETE = "DELETE FROM pergunta WHERE id=?";
 	private static final String QUERY_LISTAR_PERGUNTAS = "SELECT * FROM pergunta";
 	private static final String QUERY_LISTAR_PERGUNTAS_NIVEL = "SELECT * FROM pergunta WHERE nivel=?";
-	private static final String QUERY_SELECT_NIVEL_RANDOM_LIMIT = "SELECT * FROM perguntas WHERE nivel = ? " + ORDER_BY_RANDOM_LIMIT;	
-	private static final String QUERY_SELECT_NIVEL_RANDOM_LIMIT_PERGUNTAS_FEITAS = "SELECT * FROM perguntas WHERE nivel = ? AND perguntas.id NOT IN ";
+	private static final String QUERY_SELECT_NIVEL_RANDOM_LIMIT = "SELECT * FROM pergunta WHERE nivel = ? " + ORDER_BY_RANDOM_LIMIT;	
+	private static final String QUERY_SELECT_NIVEL_RANDOM_LIMIT_PERGUNTAS_FEITAS = "SELECT * FROM pergunta WHERE nivel = ? AND pergunta.id NOT IN ";
 
 	
 	public PerguntaDao() {
