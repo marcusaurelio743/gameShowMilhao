@@ -21,6 +21,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private JogadorService jogadorService;
 	private List<Long> idsPerguntasFeitas = new ArrayList<>();
 	private PerguntaService perguntaService;
+	private int contadorPerguntasRespondida = 2;
 	
 	public ControllerLayoutTelaPrincial() {
 		jogadorService = new JogadorService();
@@ -109,7 +110,54 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 			botoesRandomizados.get(3).setText(p.getResp());
 			
 			Collections.shuffle(botoesRandomizados);
+			
+			if(btnAlternativa1.getText().equals(p.getResp())) {
+				setFlagRespostaCerta("respostaBtn1");
+				
+				btnAlternativa1.setOnMouseClicked(evento->{
+					tratarAlternativaCorretaBotao(btnAlternativa1);
+					contadorPerguntasRespondida++;
+				});
+				aplicarEventoAlternativaErrada(Arrays.asList(btnAlternativa2,btnAlternativa3,btnAlternativa4));
+				
+			}else if(btnAlternativa2.getText().equals(p.getResp())) {
+				setFlagRespostaCerta("respostaBtn2");
+
+				btnAlternativa2.setOnMouseClicked(evento->{
+					tratarAlternativaCorretaBotao(btnAlternativa2);
+					contadorPerguntasRespondida++;
+				});
+				aplicarEventoAlternativaErrada(Arrays.asList(btnAlternativa1,btnAlternativa3,btnAlternativa4));
+				
+			}else if(btnAlternativa3.getText().equals(p.getResp())) {
+				setFlagRespostaCerta("respostaBtn3");
+
+				btnAlternativa3.setOnMouseClicked(evento->{
+					tratarAlternativaCorretaBotao(btnAlternativa3);
+					contadorPerguntasRespondida++;
+				});
+				aplicarEventoAlternativaErrada(Arrays.asList(btnAlternativa1,btnAlternativa2,btnAlternativa4));
+				
+			}else if(btnAlternativa4.getText().equals(p.getResp())) {
+				setFlagRespostaCerta("respostaBtn4");
+
+				btnAlternativa4.setOnMouseClicked(evento->{
+					tratarAlternativaCorretaBotao(btnAlternativa4);
+					contadorPerguntasRespondida++;
+				});
+				aplicarEventoAlternativaErrada(Arrays.asList(btnAlternativa1,btnAlternativa2,btnAlternativa3));
+				
+			}
 		});
+		
+	}
+	private void setFlagRespostaCerta(String resposta) {
+		
+	}
+	private void aplicarEventoAlternativaErrada(List<Button> butoes) {
+		
+	}
+	private void tratarAlternativaCorretaBotao(Button button) {
 		
 	}
 
