@@ -7,6 +7,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import br.com.showmilhao.model.Jogador;
 import br.com.showmilhao.model.Pergunta;
 import br.com.showmilhao.service.JogadorService;
@@ -23,6 +25,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private PerguntaService perguntaService;
 	private int contadorPerguntasRespondida = 2;
 	private static final String NivelFacil = "Facil";
+	private int pontuacaoErro;
 	
 	public ControllerLayoutTelaPrincial() {
 		jogadorService = new JogadorService();
@@ -66,14 +69,14 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		processarPerguntasFacil();
 	}
 	
-	private Jogador getNome() {
+	private Jogador getJogador() {
 		return  jogadorService.listar()
 							.stream().reduce((jogador1,jogador2) -> jogador2).orElseThrow();
 		
 	}
 	
 	private void initLabels() {
-		labelNomeJogador.setText(getNome().getNome());
+		labelNomeJogador.setText(getJogador().getNome());
 		labelAcertar.setText("1.000,00");
 		labelErrar.setText("0,00");
 		labelParar.setText("0,00");
@@ -158,7 +161,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		
 	}
 	private void aplicarEventoAlternativaErrada(List<Button> butoes,Button botaoAlternativaCorreta) {
-		//butoes.forEach(b->b.setOnMouseClicked(evento-> tratarAlternativaErrada()));
+		butoes.forEach(b->b.setOnMouseClicked(evento-> tratarAlternativaErrada(botaoAlternativaCorreta)));
 		
 	}
 	private void tratarAlternativaCorretaBotao(Button button) {
@@ -168,6 +171,25 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		processarPerguntas(NivelFacil);
 	}
 	private void tratarAlternativaErrada(Button botaoAlternativaCorreta) {
+		contadorPerguntasRespondida = -1;
+		ControllerUtil.startVoice("src/main/resources/song/esta-certo-disso-voice.mp3");
+		int confirma = JOptionPane.showConfirmDialog(null, "você está certo disso?","Atenção",JOptionPane.YES_NO_OPTION);
+		
+		if(confirma == JOptionPane.YES_OPTION) {
+			atualizarPontuacaoError();
+			ControllerUtil.startVoice("src/main/resources/song/qual-e-a-resposta-certa-voice.mp3");
+			//pausa na thread
+			//transição efeito
+		}
+	}
+	
+	private void atualizarPontuacaoError() {
+		atualizarPontuacaoJogador(pontuacaoErro);
+	}
+	private void atualizarPontuacaoJogador(int pontuacao) {
+		Jogador jogador = getJogador();
+		jogador.setPontuacao(pontuacao);
+		jogadorService.atualizar(jogador);
 		
 	}
 
