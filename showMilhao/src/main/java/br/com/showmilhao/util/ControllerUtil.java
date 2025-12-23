@@ -1,7 +1,6 @@
 package br.com.showmilhao.util;
 
 import java.io.File;
-import java.io.IOException;
 
 import br.com.showmilhao.application.ApplicationShowMilhao;
 import br.com.showmilhao.application.Jlayer;
@@ -23,10 +22,16 @@ public class ControllerUtil {
 		jlayer.tocar(mp3);
 		jlayer.start();
 	}
-	public static void changeLayout(Class<?> classe, String layout, String css) throws IOException {
-		AnchorPane pane = FXMLLoader.load(classe.getResource(layout));
-		pane.getStylesheets().add(classe.getResource(css).toExternalForm());
-		ApplicationShowMilhao.chageScanner(new Scene(pane,780,600));
+	public static void changeLayout(Class<?> classe, String layout, String css) {
+		try {
+			AnchorPane pane = FXMLLoader.load(classe.getResource(layout));
+			pane.getStylesheets().add(classe.getResource(css).toExternalForm());
+			ApplicationShowMilhao.chageScanner(new Scene(pane,780,600));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }

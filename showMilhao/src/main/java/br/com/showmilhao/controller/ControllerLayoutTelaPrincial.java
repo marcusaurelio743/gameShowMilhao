@@ -178,7 +178,10 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		if(confirma == JOptionPane.YES_OPTION) {
 			atualizarPontuacaoError();
 			ControllerUtil.startVoice("src/main/resources/song/qual-e-a-resposta-certa-voice.mp3");
-			//pausa na thread
+			sleep(2000);
+			ControllerUtil.startVoice("src/main/resources/song/que-pena-voce-errou-voice.mp3");
+			sleep(2000);
+			ControllerUtil.changeLayout(getClass(), "/view/LayoutTelaInicial.fxml","/css/ButtonStyle.css");
 			//transição efeito
 		}
 	}
@@ -191,6 +194,14 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		jogador.setPontuacao(pontuacao);
 		jogadorService.atualizar(jogador);
 		
+	}
+	private void sleep(long millis) {
+		try {
+			Thread.sleep(millis);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			Thread.currentThread().interrupt();
+		}
 	}
 
 }
