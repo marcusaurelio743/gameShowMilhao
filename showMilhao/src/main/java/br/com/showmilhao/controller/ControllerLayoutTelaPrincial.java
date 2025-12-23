@@ -120,7 +120,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 					tratarAlternativaCorretaBotao(btnAlternativa1);
 					contadorPerguntasRespondida++;
 				});
-				aplicarEventoAlternativaErrada(Arrays.asList(btnAlternativa2,btnAlternativa3,btnAlternativa4));
+				aplicarEventoAlternativaErrada(Arrays.asList(btnAlternativa2,btnAlternativa3,btnAlternativa4),btnAlternativa1);
 				
 			}else if(btnAlternativa2.getText().equals(p.getResp())) {
 				setFlagRespostaCerta("respostaBtn2");
@@ -129,7 +129,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 					tratarAlternativaCorretaBotao(btnAlternativa2);
 					contadorPerguntasRespondida++;
 				});
-				aplicarEventoAlternativaErrada(Arrays.asList(btnAlternativa1,btnAlternativa3,btnAlternativa4));
+				aplicarEventoAlternativaErrada(Arrays.asList(btnAlternativa1,btnAlternativa3,btnAlternativa4),btnAlternativa2);
 				
 			}else if(btnAlternativa3.getText().equals(p.getResp())) {
 				setFlagRespostaCerta("respostaBtn3");
@@ -138,7 +138,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 					tratarAlternativaCorretaBotao(btnAlternativa3);
 					contadorPerguntasRespondida++;
 				});
-				aplicarEventoAlternativaErrada(Arrays.asList(btnAlternativa1,btnAlternativa2,btnAlternativa4));
+				aplicarEventoAlternativaErrada(Arrays.asList(btnAlternativa1,btnAlternativa2,btnAlternativa4),btnAlternativa3);
 				
 			}else if(btnAlternativa4.getText().equals(p.getResp())) {
 				setFlagRespostaCerta("respostaBtn4");
@@ -147,7 +147,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 					tratarAlternativaCorretaBotao(btnAlternativa4);
 					contadorPerguntasRespondida++;
 				});
-				aplicarEventoAlternativaErrada(Arrays.asList(btnAlternativa1,btnAlternativa2,btnAlternativa3));
+				aplicarEventoAlternativaErrada(Arrays.asList(btnAlternativa1,btnAlternativa2,btnAlternativa3),btnAlternativa4);
 				
 			}
 		});
@@ -157,7 +157,8 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private void setFlagRespostaCerta(String resposta) {
 		
 	}
-	private void aplicarEventoAlternativaErrada(List<Button> butoes) {
+	private void aplicarEventoAlternativaErrada(List<Button> butoes,Button botaoAlternativaCorreta) {
+		//butoes.forEach(b->b.setOnMouseClicked(evento-> tratarAlternativaErrada()));
 		
 	}
 	private void tratarAlternativaCorretaBotao(Button button) {
@@ -165,6 +166,9 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	}
 	private void processarPerguntasFacil() {
 		processarPerguntas(NivelFacil);
+	}
+	private void tratarAlternativaErrada(Button botaoAlternativaCorreta) {
+		
 	}
 
 }
