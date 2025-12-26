@@ -14,10 +14,12 @@ import br.com.showmilhao.model.Pergunta;
 import br.com.showmilhao.service.JogadorService;
 import br.com.showmilhao.service.PerguntaService;
 import br.com.showmilhao.util.ControllerUtil;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.util.Duration;
 
 public class ControllerLayoutTelaPrincial implements Initializable {
 	private JogadorService jogadorService;
@@ -179,10 +181,8 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 			atualizarPontuacaoError();
 			ControllerUtil.startVoice("src/main/resources/song/qual-e-a-resposta-certa-voice.mp3");
 			sleep(2000);
-			ControllerUtil.startVoice("src/main/resources/song/que-pena-voce-errou-voice.mp3");
-			sleep(2000);
-			ControllerUtil.changeLayout(getClass(), "/view/LayoutTelaInicial.fxml","/css/ButtonStyle.css");
-			//transição efeito
+			
+			makeAlternativaErrada(botaoAlternativaCorreta);
 		}
 	}
 	
@@ -202,6 +202,30 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 			e.printStackTrace();
 			Thread.currentThread().interrupt();
 		}
+	}
+	
+	private FadeTransition getTransitionDefault() {
+		FadeTransition fadeTransition = new FadeTransition();
+		fadeTransition.setDuration(Duration.millis(250));
+		fadeTransition.setFromValue(0);
+		fadeTransition.setToValue(1);
+		fadeTransition.setCycleCount(8);
+		
+		return fadeTransition;
+	}
+	
+	private void makeAlternativaErrada(Button button) {
+		FadeTransition fadeTransition = getTransitionDefault();
+		fadeTransition.setNode(button);
+		fadeTransition.setOnFinished(f ->{
+			ControllerUtil.startVoice("src/main/resources/song/que-pena-voce-errou-voice.mp3");
+			sleep(2000);
+			ControllerUtil.changeLayout(getClass(), "/view/LayoutTelaInicial.fxml","/css/ButtonStyle.css");
+			
+			
+		});
+		
+		fadeTransition.play();
 	}
 
 }
