@@ -27,7 +27,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private PerguntaService perguntaService;
 	private int contadorPerguntasRespondida = 2;
 	private static final String NivelFacil = "Facil";
-	private int pontuacaoErro;
+	private int pontuacaoErro = 2500;
 	
 	public ControllerLayoutTelaPrincial() {
 		jogadorService = new JogadorService();
