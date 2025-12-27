@@ -167,7 +167,81 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		
 	}
 	private void tratarAlternativaCorretaBotao(Button button) {
+		//tratar as perguntas nivel facil
+		if(isNivelFacil()) {
+			if(contadorPerguntasRespondida == 2) {
+				ControllerUtil.startVoice("src/main/resources/song/2-mil-reais-voice.mp3");
+				
+			}
+			if (contadorPerguntasRespondida == 3) {
+				ControllerUtil.startVoice("src/main/resources/song/3-mil-reais-voice.mp3");
+
+			}
+			if (contadorPerguntasRespondida == 4) {
+				ControllerUtil.startVoice("src/main/resources/song/4-mil-reais-voice.mp3");
+
+			}
+			if (contadorPerguntasRespondida == 5) {
+				ControllerUtil.startVoice("src/main/resources/song/5-mil-reais-voice.mp3");
+
+			}
+		}
 		
+		//tratar as perguntas nivel normal
+		if(isNivelNormal()) {
+			if (contadorPerguntasRespondida == 6) {
+				ControllerUtil.startVoice("src/main/resources/song/10-mil-reais-voice.mp3");
+
+			}
+			if (contadorPerguntasRespondida == 7) {
+				ControllerUtil.startVoice("src/main/resources/song/20-mil-reais-voice.mp3");
+
+			}
+			if (contadorPerguntasRespondida == 8) {
+				ControllerUtil.startVoice("src/main/resources/song/30-mil-reais-voice.mp3");
+
+			}
+			if (contadorPerguntasRespondida == 9) {
+				
+				ControllerUtil.startVoice("src/main/resources/song/40-mil-reais-voice.mp3");
+			}
+			if (contadorPerguntasRespondida == 10) {
+				ControllerUtil.startVoice("src/main/resources/song/50-mil-reais-voice.mp3");
+			}
+			
+		}
+		//tratar as perguntas nivel dificil
+		if(isNivelDificil()) {
+			if (contadorPerguntasRespondida == 11) {
+				ControllerUtil.startVoice("src/main/resources/song/100-mil-reais-voice.mp3");
+
+			}
+			if (contadorPerguntasRespondida == 12) {
+				ControllerUtil.startVoice("src/main/resources/song/200-mil-reais-voice.mp3");
+
+			}
+			if (contadorPerguntasRespondida == 13) {
+				ControllerUtil.startVoice("src/main/resources/song/300-mil-reais-voice.mp3");
+
+			}
+			if (contadorPerguntasRespondida == 14) {
+				ControllerUtil.startVoice("src/main/resources/song/400-mil-reais-voice.mp3");
+
+			}
+			if (contadorPerguntasRespondida == 15) {
+				ControllerUtil.startVoice("src/main/resources/song/500-mil-reais-voice.mp3");
+
+			}
+			if (contadorPerguntasRespondida == 16) {
+				ControllerUtil.startVoice("src/main/resources/song/1-milhao-reais-voice.mp3");
+
+			}
+			if (contadorPerguntasRespondida == 17) {
+				
+
+			}
+			
+		}
 	}
 	private void processarPerguntasFacil() {
 		processarPerguntas(NivelFacil);
@@ -226,6 +300,15 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		});
 		
 		fadeTransition.play();
+	}
+	private boolean isNivelFacil() {
+		return (contadorPerguntasRespondida >= 1 && contadorPerguntasRespondida <= 5);
+	}
+	private boolean isNivelNormal() {
+		return (contadorPerguntasRespondida >= 6 && contadorPerguntasRespondida <= 10);
+	}
+	private boolean isNivelDificil() {
+		return (contadorPerguntasRespondida >= 11 && contadorPerguntasRespondida <= 17);
 	}
 
 }
