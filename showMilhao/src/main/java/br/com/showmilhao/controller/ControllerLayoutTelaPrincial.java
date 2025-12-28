@@ -169,19 +169,24 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private void tratarAlternativaCorretaBotao(Button button) {
 		//tratar as perguntas nivel facil
 		if(isNivelFacil()) {
+			
 			if(contadorPerguntasRespondida == 2) {
+				atualizarLabels("2", "1", "2.000,00", "500,00", "1.000,00", "FACIL");
 				ControllerUtil.startVoice("src/main/resources/song/2-mil-reais-voice.mp3");
 				
 			}
 			if (contadorPerguntasRespondida == 3) {
+				atualizarLabels("3", "1", "3.000,00", "1.000,00", "2.000,00", "FACIL");
 				ControllerUtil.startVoice("src/main/resources/song/3-mil-reais-voice.mp3");
 
 			}
 			if (contadorPerguntasRespondida == 4) {
+				atualizarLabels("4", "1", "4.000,00", "1.500,00", "3.000,00", "FACIL");
 				ControllerUtil.startVoice("src/main/resources/song/4-mil-reais-voice.mp3");
 
 			}
 			if (contadorPerguntasRespondida == 5) {
+				atualizarLabels("5", "1", "5.000,00", "2.000,00", "4.000,00", "FACIL");
 				ControllerUtil.startVoice("src/main/resources/song/5-mil-reais-voice.mp3");
 
 			}
@@ -190,22 +195,26 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		//tratar as perguntas nivel normal
 		if(isNivelNormal()) {
 			if (contadorPerguntasRespondida == 6) {
+				atualizarLabels("6", "2", "10.000,00", "2.500,00", "5.000,00", "NORMAL");
 				ControllerUtil.startVoice("src/main/resources/song/10-mil-reais-voice.mp3");
 
 			}
 			if (contadorPerguntasRespondida == 7) {
+				atualizarLabels("7", "2", "20.000,00", "5.000,00", "10.000,00", "NORMAL");
 				ControllerUtil.startVoice("src/main/resources/song/20-mil-reais-voice.mp3");
 
 			}
 			if (contadorPerguntasRespondida == 8) {
+				atualizarLabels("8", "2", "30.000,00", "10.000,00", "20.000,00", "NORMAL");
 				ControllerUtil.startVoice("src/main/resources/song/30-mil-reais-voice.mp3");
 
 			}
 			if (contadorPerguntasRespondida == 9) {
-				
+				atualizarLabels("9", "2", "40.000,00", "15.000,00", "30.000,00", "NORMAL");
 				ControllerUtil.startVoice("src/main/resources/song/40-mil-reais-voice.mp3");
 			}
 			if (contadorPerguntasRespondida == 10) {
+				atualizarLabels("10", "2", "50.000,00", "20.000,00", "40.000,00", "NORMAL");
 				ControllerUtil.startVoice("src/main/resources/song/50-mil-reais-voice.mp3");
 			}
 			
@@ -213,26 +222,32 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		//tratar as perguntas nivel dificil
 		if(isNivelDificil()) {
 			if (contadorPerguntasRespondida == 11) {
+				atualizarLabels("11", "3", "100.000,00", "25.000,00", "50.000,00", "DIFICIL");
 				ControllerUtil.startVoice("src/main/resources/song/100-mil-reais-voice.mp3");
 
 			}
 			if (contadorPerguntasRespondida == 12) {
+				atualizarLabels("12", "3", "200.000,00", "50.000,00", "100.000,00", "DIFICIL");
 				ControllerUtil.startVoice("src/main/resources/song/200-mil-reais-voice.mp3");
 
 			}
 			if (contadorPerguntasRespondida == 13) {
+				atualizarLabels("13", "3", "300.000,00", "100.000,00", "200.000,00", "DIFICIL");
 				ControllerUtil.startVoice("src/main/resources/song/300-mil-reais-voice.mp3");
 
 			}
 			if (contadorPerguntasRespondida == 14) {
+				atualizarLabels("14", "3", "450.000,00", "150.000,00", "300.000,00", "DIFICIL");
 				ControllerUtil.startVoice("src/main/resources/song/400-mil-reais-voice.mp3");
 
 			}
 			if (contadorPerguntasRespondida == 15) {
+				atualizarLabels("15", "3", "500.000,00", "200.000,00", "400.000,00", "DIFICIL");
 				ControllerUtil.startVoice("src/main/resources/song/500-mil-reais-voice.mp3");
 
 			}
 			if (contadorPerguntasRespondida == 16) {
+				atualizarLabels("16", "3", "1.000.000,00", "0,00", "500.000,00", "DIFICIL");
 				ControllerUtil.startVoice("src/main/resources/song/1-milhao-reais-voice.mp3");
 
 			}
@@ -309,6 +324,16 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	}
 	private boolean isNivelDificil() {
 		return (contadorPerguntasRespondida >= 11 && contadorPerguntasRespondida <= 17);
+	}
+	private void atualizarLabels(String... informacao) {
+		labelNumeroPergunta.setText(informacao[0]);
+		labelNumeroRodada.setText(informacao[1]);
+		labelAcertar.setText(informacao[2]);
+		labelErrar.setText(informacao[3]);
+		labelParar.setText(informacao[4]);
+		labelNivel.setText(informacao[5]);
+		
+		
 	}
 
 }
