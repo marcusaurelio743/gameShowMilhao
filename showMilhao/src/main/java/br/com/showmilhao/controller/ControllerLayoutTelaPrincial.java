@@ -270,7 +270,8 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 
 			}
 			if (contadorPerguntasRespondida == 17) {
-				
+				atualizarPontuacaoJogador(pontuacaoAcerto);
+				ControllerUtil.changeLayout(getClass(), "/view/LayoutTelaInicial.fxml","/css/ButtonStyle.css");
 
 			}
 			
@@ -285,7 +286,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		int confirma = JOptionPane.showConfirmDialog(null, "você está certo disso?","Atenção",JOptionPane.YES_NO_OPTION);
 		
 		if(confirma == JOptionPane.YES_OPTION) {
-			atualizarPontuacaoError();
+			atualizarPontuacaoJogador(pontuacaoErro);
 			ControllerUtil.startVoice("src/main/resources/song/qual-e-a-resposta-certa-voice.mp3");
 			sleep(2000);
 			
@@ -293,9 +294,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		}
 	}
 	
-	private void atualizarPontuacaoError() {
-		atualizarPontuacaoJogador(pontuacaoErro);
-	}
+	
 	private void atualizarPontuacaoJogador(int pontuacao) {
 		Jogador jogador = getJogador();
 		jogador.setPontuacao(pontuacao);
