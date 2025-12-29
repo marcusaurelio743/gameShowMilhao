@@ -27,7 +27,9 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private PerguntaService perguntaService;
 	private int contadorPerguntasRespondida = 2;
 	private static final String NivelFacil = "Facil";
-	private int pontuacaoErro = 2500;
+	private int pontuacaoErro ;
+	private int pontuacaoAcerto;
+	private int pontuacaoParar;
 	
 	public ControllerLayoutTelaPrincial() {
 		jogadorService = new JogadorService();
@@ -173,22 +175,27 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 			if(contadorPerguntasRespondida == 2) {
 				atualizarLabels("2", "1", "2.000,00", "500,00", "1.000,00", "FACIL");
 				ControllerUtil.startVoice("src/main/resources/song/2-mil-reais-voice.mp3");
+				//acerto - erro - parar
+				atualizarPontuacoes(1000,500,1000);
+				
 				
 			}
 			if (contadorPerguntasRespondida == 3) {
 				atualizarLabels("3", "1", "3.000,00", "1.000,00", "2.000,00", "FACIL");
 				ControllerUtil.startVoice("src/main/resources/song/3-mil-reais-voice.mp3");
+				atualizarPontuacoes(1000,1000,2000);
 
 			}
 			if (contadorPerguntasRespondida == 4) {
 				atualizarLabels("4", "1", "4.000,00", "1.500,00", "3.000,00", "FACIL");
 				ControllerUtil.startVoice("src/main/resources/song/4-mil-reais-voice.mp3");
+				atualizarPontuacoes(1000,1500,3000);
 
 			}
 			if (contadorPerguntasRespondida == 5) {
 				atualizarLabels("5", "1", "5.000,00", "2.000,00", "4.000,00", "FACIL");
 				ControllerUtil.startVoice("src/main/resources/song/5-mil-reais-voice.mp3");
-
+				atualizarPontuacoes(1000,2000,4000);
 			}
 		}
 		
@@ -197,25 +204,30 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 			if (contadorPerguntasRespondida == 6) {
 				atualizarLabels("6", "2", "10.000,00", "2.500,00", "5.000,00", "NORMAL");
 				ControllerUtil.startVoice("src/main/resources/song/10-mil-reais-voice.mp3");
+				atualizarPontuacoes(1000, 2500, 5000);	
 
 			}
 			if (contadorPerguntasRespondida == 7) {
 				atualizarLabels("7", "2", "20.000,00", "5.000,00", "10.000,00", "NORMAL");
 				ControllerUtil.startVoice("src/main/resources/song/20-mil-reais-voice.mp3");
+				atualizarPontuacoes(5000, 5000, 10000);
 
 			}
 			if (contadorPerguntasRespondida == 8) {
 				atualizarLabels("8", "2", "30.000,00", "10.000,00", "20.000,00", "NORMAL");
 				ControllerUtil.startVoice("src/main/resources/song/30-mil-reais-voice.mp3");
+				atualizarPontuacoes(10000, 10000, 20000);
 
 			}
 			if (contadorPerguntasRespondida == 9) {
 				atualizarLabels("9", "2", "40.000,00", "15.000,00", "30.000,00", "NORMAL");
 				ControllerUtil.startVoice("src/main/resources/song/40-mil-reais-voice.mp3");
+				atualizarPontuacoes(10000, 15000, 30000);
 			}
 			if (contadorPerguntasRespondida == 10) {
 				atualizarLabels("10", "2", "50.000,00", "20.000,00", "40.000,00", "NORMAL");
 				ControllerUtil.startVoice("src/main/resources/song/50-mil-reais-voice.mp3");
+				atualizarPontuacoes(10000, 20000, 40000);	
 			}
 			
 		}
@@ -224,31 +236,37 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 			if (contadorPerguntasRespondida == 11) {
 				atualizarLabels("11", "3", "100.000,00", "25.000,00", "50.000,00", "DIFICIL");
 				ControllerUtil.startVoice("src/main/resources/song/100-mil-reais-voice.mp3");
+				atualizarPontuacoes(10000, 25000, 50000);
 
 			}
 			if (contadorPerguntasRespondida == 12) {
 				atualizarLabels("12", "3", "200.000,00", "50.000,00", "100.000,00", "DIFICIL");
 				ControllerUtil.startVoice("src/main/resources/song/200-mil-reais-voice.mp3");
+				atualizarPontuacoes(50000, 50000, 100000);
 
 			}
 			if (contadorPerguntasRespondida == 13) {
 				atualizarLabels("13", "3", "300.000,00", "100.000,00", "200.000,00", "DIFICIL");
 				ControllerUtil.startVoice("src/main/resources/song/300-mil-reais-voice.mp3");
+				atualizarPontuacoes(100000, 100000, 200000);
 
 			}
 			if (contadorPerguntasRespondida == 14) {
-				atualizarLabels("14", "3", "450.000,00", "150.000,00", "300.000,00", "DIFICIL");
+				atualizarLabels("14", "3", "400.000,00", "150.000,00", "300.000,00", "DIFICIL");
 				ControllerUtil.startVoice("src/main/resources/song/400-mil-reais-voice.mp3");
+				atualizarPontuacoes(100000, 150000, 300000);
 
 			}
 			if (contadorPerguntasRespondida == 15) {
 				atualizarLabels("15", "3", "500.000,00", "200.000,00", "400.000,00", "DIFICIL");
 				ControllerUtil.startVoice("src/main/resources/song/500-mil-reais-voice.mp3");
+				atualizarPontuacoes(100000, 200000, 400000);
 
 			}
 			if (contadorPerguntasRespondida == 16) {
 				atualizarLabels("16", "3", "1.000.000,00", "0,00", "500.000,00", "DIFICIL");
 				ControllerUtil.startVoice("src/main/resources/song/1-milhao-reais-voice.mp3");
+				atualizarPontuacoes(600000, 0, 500000);	
 
 			}
 			if (contadorPerguntasRespondida == 17) {
@@ -334,6 +352,12 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		labelNivel.setText(informacao[5]);
 		
 		
+	}
+	//acerto - erro - parar
+	private void atualizarPontuacoes(int...informacoes) {
+		pontuacaoAcerto += informacoes[0];
+		pontuacaoErro += informacoes[1];
+		pontuacaoParar += informacoes[2];
 	}
 
 }
