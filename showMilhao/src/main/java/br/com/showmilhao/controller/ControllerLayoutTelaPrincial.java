@@ -26,7 +26,9 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private List<Long> idsPerguntasFeitas = new ArrayList<>();
 	private PerguntaService perguntaService;
 	private int contadorPerguntasRespondida = 2;
-	private static final String NivelFacil = "Facil";
+	private static final String NivelFacil = "facil";
+	private static final String NivelNormal = "normal";
+	private static final String NivelDificil = "dificil";
 	private int pontuacaoErro ;
 	private int pontuacaoAcerto;
 	private int pontuacaoParar;
@@ -70,7 +72,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		ControllerUtil.startVoice("src/main/resources/song/1-mil-reais-voice.mp3");
 		initLabels();
-		processarPerguntasFacil();
+		processarPerguntas(NivelFacil);
 	}
 	
 	private Jogador getJogador() {
@@ -287,9 +289,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 			}
 		}
 	}
-	private void processarPerguntasFacil() {
-		processarPerguntas(NivelFacil);
-	}
+	
 	private void tratarAlternativaErrada(Button botaoAlternativaCorreta) {
 		contadorPerguntasRespondida = -1;
 		ControllerUtil.startVoice("src/main/resources/song/esta-certo-disso-voice.mp3");
@@ -342,6 +342,35 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		});
 		
 		fadeTransition.play();
+	}
+	private void makeAlternativaCorreta(Button button) {
+		FadeTransition fadeTransition = getTransitionDefault();
+		fadeTransition.setNode(button);
+		fadeTransition.setOnFinished(f -> processarProximaPergunta(contadorPerguntasRespondida));
+		
+		fadeTransition.play();
+	}
+	
+	private void processarProximaPergunta(int perguntaContador) {
+		int sleep = 1000;
+		if(perguntaContador >= 1 && perguntaContador <=5) {
+			sleep(sleep);
+			processarPerguntas(NivelFacil);
+		}else if(perguntaContador >= 6 && perguntaContador <= 10) {
+			if(perguntaContador ==6) {
+				sleep = 6000;
+			}
+			sleep(sleep);
+			processarPerguntas(NivelNormal);
+		}else if(perguntaContador >= 11 && perguntaContador <= 17) {
+			if(perguntaContador ==16 || perguntaContador == 11) {
+				sleep = 5000;
+			}
+			sleep(sleep);
+			processarPerguntas(NivelDificil);
+		}
+		sleep(sleep);
+		
 	}
 	private boolean isNivelFacil() {
 		return (contadorPerguntasRespondida >= 1 && contadorPerguntasRespondida <= 5);
