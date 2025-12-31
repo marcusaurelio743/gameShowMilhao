@@ -177,6 +177,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		if(confirma == JOptionPane.YES_OPTION) {
 			ControllerUtil.startVoice("src/main/resources/song/qual-e-a-resposta-certa-voice.mp3");
 			sleep(2000);
+			makeAlternativaCorreta(button);
 			//método para tratar alternativa correta transition 
 			ControllerUtil.startVoice("src/main/resources/song/certa-resposta.mp3");
 			sleep(500);
@@ -353,12 +354,14 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	
 	private void processarProximaPergunta(int perguntaContador) {
 		int sleep = 1000;
+		perguntaContador = perguntaContador -1;
+		
 		if(perguntaContador >= 1 && perguntaContador <=5) {
 			sleep(sleep);
 			processarPerguntas(NivelFacil);
 		}else if(perguntaContador >= 6 && perguntaContador <= 10) {
 			if(perguntaContador ==6) {
-				sleep = 6000;
+				sleep = 3000;
 			}
 			sleep(sleep);
 			processarPerguntas(NivelNormal);
