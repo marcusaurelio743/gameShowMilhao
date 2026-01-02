@@ -375,6 +375,9 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		sleep(sleep);
 		
 	}
+	
+	
+
 	private boolean isNivelFacil() {
 		return (contadorPerguntasRespondida >= 1 && contadorPerguntasRespondida <= 5);
 	}
@@ -395,7 +398,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		
 	}
 	//acerto - erro - parar
-	private void atualizarPontuacoes(int...informacoes) {
+	private void atualizarPontuacoes(int... informacoes) {
 		pontuacaoAcerto += informacoes[0];
 		pontuacaoErro += informacoes[1];
 		pontuacaoParar += informacoes[2];
