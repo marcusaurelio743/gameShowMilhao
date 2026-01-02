@@ -9,6 +9,8 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import com.jfoenix.controls.JFXButton;
+
 import br.com.showmilhao.model.Jogador;
 import br.com.showmilhao.model.Pergunta;
 import br.com.showmilhao.service.JogadorService;
@@ -62,6 +64,8 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private Button btnAlternativa3;
 	@FXML
 	private Button btnAlternativa4;
+	@FXML
+	private JFXButton btnParar;
 	
 	@FXML
 	private void fechar() {
@@ -73,6 +77,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		ControllerUtil.startVoice("src/main/resources/song/1-mil-reais-voice.mp3");
 		initLabels();
 		processarPerguntas(NivelFacil);
+		aplicarEventoButaoParar();
 	}
 	
 	private Jogador getJogador() {
@@ -402,6 +407,24 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		pontuacaoAcerto += informacoes[0];
 		pontuacaoErro += informacoes[1];
 		pontuacaoParar += informacoes[2];
+	}
+	
+	private void aplicarEventoButaoParar() {
+		btnParar.setOnMouseClicked(evento ->{
+			ControllerUtil.startVoice("src/main/resources/song/vai-parar-esta-certo-disso-voice.mp3");
+			int confirma = JOptionPane.showConfirmDialog(null, "você realmente deseja parar?","Atenção",JOptionPane.YES_NO_OPTION);
+			if(confirma == JOptionPane.YES_OPTION) {
+				if(contadorPerguntasRespondida == 16) {
+					ControllerUtil.startVoice("src/main/resources/song/parou-500-mil-reais-voice.mp3");
+				}else {
+					ControllerUtil.startVoice("src/main/resources/song/ok-parou-voice.mp3");	
+				}
+				
+			}
+			JOptionPane.showMessageDialog(null, "Você Parou !!!!!");
+			atualizarPontuacaoJogador(pontuacaoParar);
+			ControllerUtil.changeLayout(getClass(), "/view/LayoutTelaInicial.fxml","/css/ButtonStyle.css");
+		});
 	}
 
 }

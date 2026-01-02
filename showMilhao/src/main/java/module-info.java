@@ -8,6 +8,7 @@ module showMilhao {
 	requires javafx.fxml;
 	requires javafx.graphics;
 	requires javafx.base;
+	requires com.jfoenix;
 	
 	opens br.com.showmilhao.application to javafx.graphics, javafx.fxml;
 }
