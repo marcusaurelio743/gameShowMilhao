@@ -34,6 +34,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private int pontuacaoErro ;
 	private int pontuacaoAcerto;
 	private int pontuacaoParar;
+	private int pulos = 3;
 	
 	public ControllerLayoutTelaPrincial() {
 		jogadorService = new JogadorService();
@@ -66,6 +67,10 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private Button btnAlternativa4;
 	@FXML
 	private JFXButton btnParar;
+	@FXML
+	private JFXButton btnPulo;
+	@FXML
+	private Label lblPulos;
 	
 	@FXML
 	private void fechar() {
@@ -78,6 +83,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		initLabels();
 		processarPerguntas(NivelFacil);
 		aplicarEventoButaoParar();
+		 aplicarEventoButaoPular(); 
 	}
 	
 	private Jogador getJogador() {
@@ -412,6 +418,9 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private void aplicarEventoButaoParar() {
 		btnParar.setOnMouseClicked(evento ->parar());
 	}
+	private void aplicarEventoButaoPular() {
+		btnParar.setOnMouseClicked(evento ->pular());
+	}
 	
 	private void parar() {
 		ControllerUtil.startVoice("src/main/resources/song/vai-parar-esta-certo-disso-voice.mp3");
@@ -425,6 +434,29 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 			JOptionPane.showMessageDialog(null, "Você Parou !!!!!");
 			atualizarPontuacaoJogador(pontuacaoParar);
 			ControllerUtil.changeLayout(getClass(), "/view/LayoutTelaInicial.fxml","/css/ButtonStyle.css");
+		}
+	}
+	
+	private void pular() {
+		ControllerUtil.startVoice("src/main/resources/song/voce-tem-certeza-voice.mp3");
+		int confirma = JOptionPane.showConfirmDialog(null, "você realmente deseja pular?","Atenção",JOptionPane.YES_NO_OPTION);
+		if(confirma == JOptionPane.YES_OPTION) {
+			pulos -= 1;
+			lblPulos.setText(String.valueOf(pulos));
+		}
+		if(pulos == 0) {
+			btnPulo.setVisible(Boolean.FALSE);
+		}
+		JOptionPane.showMessageDialog(null, "Próxima Pergunta...!!");
+		if (isNivelFacil()) {
+			processarPerguntas(NivelFacil);
+		}
+		if (isNivelNormal()) {
+			processarPerguntas(NivelNormal);
+
+		}
+		if (isNivelDificil()) {
+			processarPerguntas(NivelDificil);
 		}
 	}
 

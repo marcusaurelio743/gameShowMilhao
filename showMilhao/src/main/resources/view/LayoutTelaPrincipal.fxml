@@ -81,7 +81,7 @@
                   <Font size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="161.0" layoutY="101.0" prefHeight="35.0" prefWidth="67.0" text="Pulo" textFill="#fff7f7">
+            <JFXButton layoutX="161.0" fx:id="btnPulo" layoutY="101.0" prefHeight="35.0" prefWidth="67.0" text="Pulo" textFill="#fff7f7">
                <font>
                   <Font size="16.0" />
                </font>
@@ -91,7 +91,7 @@
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="197.0" layoutY="25.0" prefHeight="17.0" prefWidth="47.0" text="0" textFill="#f2ecec">
+            <Label layoutX="197.0" fx:id="lblPulos" layoutY="25.0" prefHeight="17.0" prefWidth="47.0" text="3" textFill="#f2ecec">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
