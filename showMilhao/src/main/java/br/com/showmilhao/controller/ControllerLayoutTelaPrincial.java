@@ -419,7 +419,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		btnParar.setOnMouseClicked(evento ->parar());
 	}
 	private void aplicarEventoButaoPular() {
-		btnParar.setOnMouseClicked(evento ->pular());
+		btnPulo.setOnMouseClicked(evento ->pular());
 	}
 	
 	private void parar() {
@@ -443,21 +443,23 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		if(confirma == JOptionPane.YES_OPTION) {
 			pulos -= 1;
 			lblPulos.setText(String.valueOf(pulos));
-		}
-		if(pulos == 0) {
-			btnPulo.setVisible(Boolean.FALSE);
-		}
-		JOptionPane.showMessageDialog(null, "Próxima Pergunta...!!");
-		if (isNivelFacil()) {
-			processarPerguntas(NivelFacil);
-		}
-		if (isNivelNormal()) {
-			processarPerguntas(NivelNormal);
+			
+			if(pulos == 0) {
+				btnPulo.setVisible(Boolean.FALSE);
+			}
+			JOptionPane.showMessageDialog(null, "Próxima Pergunta...!!");
+			if (isNivelFacil()) {
+				processarPerguntas(NivelFacil);
+			}
+			if (isNivelNormal()) {
+				processarPerguntas(NivelNormal);
 
+			}
+			if (isNivelDificil()) {
+				processarPerguntas(NivelDificil);
+			}
 		}
-		if (isNivelDificil()) {
-			processarPerguntas(NivelDificil);
-		}
+		
 	}
 
 }

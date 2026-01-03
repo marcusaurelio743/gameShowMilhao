@@ -81,7 +81,7 @@
                   <Font size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="161.0" fx:id="btnPulo" layoutY="101.0" prefHeight="35.0" prefWidth="67.0" text="Pulo" textFill="#fff7f7">
+            <JFXButton fx:id="btnPulo" layoutX="161.0"  layoutY="101.0" prefHeight="35.0" prefWidth="67.0" text="Pulo" textFill="#fff7f7">
                <font>
                   <Font size="16.0" />
                </font>
