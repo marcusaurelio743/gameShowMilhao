@@ -405,26 +405,27 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	//acerto - erro - parar
 	private void atualizarPontuacoes(int... informacoes) {
 		pontuacaoAcerto += informacoes[0];
-		pontuacaoErro += informacoes[1];
-		pontuacaoParar += informacoes[2];
+		pontuacaoErro = informacoes[1];
+		pontuacaoParar = informacoes[2];
 	}
 	
 	private void aplicarEventoButaoParar() {
-		btnParar.setOnMouseClicked(evento ->{
-			ControllerUtil.startVoice("src/main/resources/song/vai-parar-esta-certo-disso-voice.mp3");
-			int confirma = JOptionPane.showConfirmDialog(null, "você realmente deseja parar?","Atenção",JOptionPane.YES_NO_OPTION);
-			if(confirma == JOptionPane.YES_OPTION) {
-				if(contadorPerguntasRespondida == 16) {
-					ControllerUtil.startVoice("src/main/resources/song/parou-500-mil-reais-voice.mp3");
-				}else {
-					ControllerUtil.startVoice("src/main/resources/song/ok-parou-voice.mp3");	
-				}
-				
+		btnParar.setOnMouseClicked(evento ->parar());
+	}
+	
+	private void parar() {
+		ControllerUtil.startVoice("src/main/resources/song/vai-parar-esta-certo-disso-voice.mp3");
+		int confirma = JOptionPane.showConfirmDialog(null, "você realmente deseja parar?","Atenção",JOptionPane.YES_NO_OPTION);
+		if(confirma == JOptionPane.YES_OPTION) {
+			if(contadorPerguntasRespondida == 16) {
+				ControllerUtil.startVoice("src/main/resources/song/parou-500-mil-reais-voice.mp3");
+			}else {
+				ControllerUtil.startVoice("src/main/resources/song/ok-parou-voice.mp3");	
 			}
 			JOptionPane.showMessageDialog(null, "Você Parou !!!!!");
 			atualizarPontuacaoJogador(pontuacaoParar);
 			ControllerUtil.changeLayout(getClass(), "/view/LayoutTelaInicial.fxml","/css/ButtonStyle.css");
-		});
+		}
 	}
 
 }
