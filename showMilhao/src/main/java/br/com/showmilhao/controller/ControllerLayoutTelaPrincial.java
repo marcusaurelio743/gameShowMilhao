@@ -71,6 +71,20 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private JFXButton btnPulo;
 	@FXML
 	private Label lblPulos;
+	@FXML
+	private Label lblUniversitario1;
+	@FXML
+	private Label lblUniversitario2;
+	@FXML
+	private Label lblUniversitario3;
+	@FXML
+	private Button btnUniversitario1;
+	@FXML
+	private Button btnUniversitario2;
+	@FXML
+	private Button btnUniversitario3;
+	@FXML
+	private JFXButton btnuniversitarios;
 	
 	@FXML
 	private void fechar() {
@@ -84,6 +98,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		processarPerguntas(NivelFacil);
 		aplicarEventoButaoParar();
 		 aplicarEventoButaoPular(); 
+		 aplicarEventoCliqueBotaoUniversitarios();
 	}
 	
 	private Jogador getJogador() {
@@ -295,6 +310,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 				}
 				if (contadorPerguntasRespondida == 17) {
 					atualizarPontuacaoJogador(pontuacaoAcerto);
+					JOptionPane.showMessageDialog(null, "Parabéns você gahou 1 milhão de reais!!!!");
 					ControllerUtil.changeLayout(getClass(), "/view/LayoutTelaInicial.fxml","/css/ButtonStyle.css");
 	
 				}
@@ -460,6 +476,22 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 			}
 		}
 		
+	}
+	
+	private void setVisibleUniversitarios(boolean visible) {
+		lblUniversitario1.setVisible(visible);
+		lblUniversitario2.setVisible(visible);
+		lblUniversitario3.setVisible(visible);
+		
+		btnUniversitario1.setVisible(visible);
+		btnUniversitario2.setVisible(visible);
+		btnUniversitario3.setVisible(visible);
+	}
+	private void aplicarEventoCliqueBotaoUniversitarios() {
+		btnuniversitarios.setOnMouseClicked(evento->processarAjudaUniversitarios());
+	}
+	public void processarAjudaUniversitarios() {
+		setVisibleUniversitarios(Boolean.TRUE);
 	}
 
 }

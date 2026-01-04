@@ -57,28 +57,28 @@ public class ApplicationShowMilhao extends Application {
 				"Qual foi a linguagem de programação criada pela sun em 1995?",
 				"PHP",
 				"Javascript",
-				"JAVA",
+				"RUBY",
 				"JAVA");
 		Pergunta pergunta2 = new Pergunta(
 				null, "Facil",
 				"Quanto é 1 + 1",
 				"0",
 				"3",
-				"2",
+				"7",
 				"2");
 		Pergunta pergunta3 = new Pergunta(
 				null, "Facil",
 				"Qual é o Pilar da POO que encapsula as informações de um objeto?",
 				"Herança",
 				"polimorfismo",
-				"encapsulamento",
+				"generalização",
 				"encapsulamento");
 		Pergunta pergunta4 = new Pergunta(
 				null, "Facil",
 				"Qual empresa no dias de hoje é a mantenedora do Java?",
 				"Microsoft",
 				"Apple",
-				"Oracle",
+				"azul",
 				"Oracle");
 		perguntaService.inserir(pergunta1);
 		perguntaService.inserir(pergunta2);
