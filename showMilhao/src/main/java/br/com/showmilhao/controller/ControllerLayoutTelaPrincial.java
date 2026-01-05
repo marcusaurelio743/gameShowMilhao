@@ -552,7 +552,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		ControllerUtil.startVoice("src/main/resources/song/tire-a-carta-do-baralho-voice.mp3");
 		
 		List<Integer> opcoesEliminacaoRespostasErradas = Arrays.asList(0, 1, 2, 3);
-		Collections.shuffle(opcoesEliminacaoRespostasErradas);
+		Collections.shuffle(opcoesEliminacaoRespostasErradas); 
 		
 		btnCarta1.setText(opcoesEliminacaoRespostasErradas.get(0).toString());
 		btnCarta2.setText(opcoesEliminacaoRespostasErradas.get(1).toString());
