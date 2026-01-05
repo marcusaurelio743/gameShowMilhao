@@ -139,6 +139,8 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	}
 	
 	private void processarPerguntas(String nivel) {
+		setVisibleUniversitarios(Boolean.FALSE);
+		
 		List<Pergunta> perguntas = perguntaService.listar(getIdPerguntasFeitas(), nivel);
 		perguntas.forEach(p->{
 			idsPerguntasFeitas.add(p.getId());
@@ -520,11 +522,59 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		btnUniversitario2.setVisible(visible);
 		btnUniversitario3.setVisible(visible);
 	}
+	private void processarNomesUniversitarios() {
+		lblUniversitario1.setText("Maria");
+		lblUniversitario2.setText("Alex");
+		lblUniversitario3.setText("Paulo");
+	}
 	private void aplicarEventoCliqueBotaoUniversitarios() {
 		btnuniversitarios.setOnMouseClicked(evento->processarAjudaUniversitarios());
 	}
 	public void processarAjudaUniversitarios() {
 		setVisibleUniversitarios(Boolean.TRUE);
+		
+		processarNomesUniversitarios();
+		
+		String alternativaCorreta = "";
+		
+		if(respostaBtn1.equalsIgnoreCase("certo")) {
+			alternativaCorreta = btnAlternativa1.getText();
+			
+		}
+		else if(respostaBtn2.equalsIgnoreCase("certo")) {
+			alternativaCorreta = btnAlternativa2.getText();
+			
+		}
+		else if(respostaBtn3.equalsIgnoreCase("certo")) {
+			alternativaCorreta = btnAlternativa3.getText();
+			
+		}
+		else if(respostaBtn4.equalsIgnoreCase("certo")) {
+			alternativaCorreta = btnAlternativa4.getText();
+			
+		}
+		
+		List<String> alternativas = new ArrayList<String>();
+		alternativas.add(btnAlternativa1.getText());
+		alternativas.add(btnAlternativa2.getText());
+		alternativas.add(btnAlternativa3.getText());
+		alternativas.add(btnAlternativa4.getText());
+		Collections.shuffle(alternativas);
+		
+		List<Button> universitarios = new ArrayList<Button>();
+		universitarios.add(btnUniversitario1);
+		universitarios.add(btnUniversitario2);
+		universitarios.add(btnUniversitario3);
+		Collections.shuffle(universitarios);
+		
+		universitarios.get(0).setText(alternativaCorreta);
+		universitarios.get(1).setText(alternativas.get(1));
+		universitarios.get(2).setText(alternativas.get(2));
+		
+		btnuniversitarios.setVisible(Boolean.FALSE);
+		
 	}
+	
+	
 
 }

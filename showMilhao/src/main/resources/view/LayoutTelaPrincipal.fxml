@@ -32,9 +32,18 @@
       <Button fx:id="btnAlternativa3" layoutX="5.0" layoutY="424.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="336.0" styleClass="defaultButton" wrapText="true" />
       <Button fx:id="btnAlternativa4" layoutX="5.0" layoutY="479.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="336.0" styleClass="defaultButton" wrapText="true" />
      
-      <Button fx:id="btnUniversitario1" layoutX="5.0" layoutY="267.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="114.0" styleClass="universitario" visible="false" wrapText="true" />
-      <Button fx:id="btnUniversitario2" layoutX="249.0" layoutY="268.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="121.0" styleClass="universitario" visible="false" wrapText="true" />
-      <Button fx:id="btnUniversitario3" layoutX="122.0" layoutY="267.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="121.0" styleClass="universitario" visible="false" wrapText="true" />
+      <Button fx:id="btnUniversitario1" layoutX="5.0" layoutY="267.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="114.0" styleClass="universitario" visible="false" wrapText="true">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="btnUniversitario2" layoutX="249.0" layoutY="268.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="121.0" styleClass="universitario" visible="false" wrapText="true">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="btnUniversitario3" layoutX="122.0" layoutY="267.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="121.0" styleClass="universitario" visible="false" wrapText="true">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
      
       <Label fx:id="lblUniversitario1" layoutX="31.0" layoutY="241.0" prefHeight="19.0" prefWidth="91.0" text="Universitário1" textAlignment="CENTER" textFill="#fff9f9" visible="false">
          <font>
