@@ -4,8 +4,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 import javax.swing.JOptionPane;
 
@@ -571,11 +575,49 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		sleep(2000);
 		
 		if(botao.getText().equals("0")) {
-			
 			JOptionPane.showMessageDialog(null, "QUE PENA NENHUMA ALTERNATIVA ERRADA SERÁ ELIMINADA!!");
+		}else if(botao.getText().equals("1")) {
+			JOptionPane.showMessageDialog(null, "APENAS 1 ALTERNATIVA ERRADA SERÁ ELIMINADA!!");
+			getAlternativaRespostaBtn(getRespostaBtnErradas().get(new Random().nextInt(3))).setVisible(Boolean.FALSE);
+			
+		}else if(botao.getText().equals("2")) {
+			JOptionPane.showMessageDialog(null, "APENAS 2 ALTERNATIVA ERRADA SERÁ ELIMINADA!!");
+		}
+		else if(botao.getText().equals("3")) {
+			JOptionPane.showMessageDialog(null, "APENAS 3 ALTERNATIVA ERRADA SERÁ ELIMINADA!!");
+			
 		}
 		setVisibleCartas(Boolean.FALSE);
 		
+	}
+	
+	private Button getAlternativaRespostaBtn(String respostaBtn) {
+		Button button = null;
+		if (respostaBtn.equals("respostaBtn1")) {
+			button = btnAlternativa1;
+		}
+		if (respostaBtn.equals("respostaBtn2")) {
+			button = btnAlternativa2;
+		}
+		if (respostaBtn.equals("respostaBtn3")) {
+			button = btnAlternativa3;
+		}
+		if (respostaBtn.equals("respostaBtn4")) {
+			button = btnAlternativa4;
+		}
+		return button;
+	}
+	private Map<String, String> getRespostaBtn(){
+		Map<String, String> respostaBtnMap = new HashMap<>();
+		respostaBtnMap.put("respostaBtn1", respostaBtn1);
+		respostaBtnMap.put("respostaBtn2", respostaBtn2);
+		respostaBtnMap.put("respostaBtn3", respostaBtn3);
+		respostaBtnMap.put("respostaBtn4", respostaBtn4);
+		return respostaBtnMap;
+	}
+	
+	private List<String> getRespostaBtnErradas(){
+		return getRespostaBtn().entrySet().stream().filter(value -> value.getValue().equals("errado")).map(key->key.getKey()).collect(Collectors.toList());
 	}
 	
 	private void setVisibleCartas(boolean visible) {
