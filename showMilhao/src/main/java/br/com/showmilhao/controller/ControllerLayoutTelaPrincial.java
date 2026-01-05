@@ -550,6 +550,16 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	public void processarAjudaCartas() {
 		setVisibleCartas(Boolean.TRUE);
 		ControllerUtil.startVoice("src/main/resources/song/tire-a-carta-do-baralho-voice.mp3");
+		
+		List<Integer> opcoesEliminacaoRespostasErradas = Arrays.asList(0, 1, 2, 3);
+		Collections.shuffle(opcoesEliminacaoRespostasErradas);
+		
+		btnCarta1.setText(opcoesEliminacaoRespostasErradas.get(0).toString());
+		btnCarta2.setText(opcoesEliminacaoRespostasErradas.get(1).toString());
+		btnCarta3.setText(opcoesEliminacaoRespostasErradas.get(2).toString());
+		btnCarta4.setText(opcoesEliminacaoRespostasErradas.get(3).toString());
+		
+		btnCartas.setVisible(Boolean.FALSE);
 	}
 	
 	private void setVisibleCartas(boolean visible) {
