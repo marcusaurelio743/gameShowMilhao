@@ -559,7 +559,23 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		btnCarta3.setText(opcoesEliminacaoRespostasErradas.get(2).toString());
 		btnCarta4.setText(opcoesEliminacaoRespostasErradas.get(3).toString());
 		
+		btnCarta1.setOnMouseClicked(envento-> eliminarAlternativasErradas(btnCarta1));
+		btnCarta2.setOnMouseClicked(envento->eliminarAlternativasErradas(btnCarta2));
+		btnCarta3.setOnMouseClicked(envento->eliminarAlternativasErradas(btnCarta3));
+		btnCarta4.setOnMouseClicked(envento->eliminarAlternativasErradas(btnCarta4));
+		
 		btnCartas.setVisible(Boolean.FALSE);
+	}
+	private void eliminarAlternativasErradas(Button botao) {
+		ControllerUtil.startVoice("src/main/resources/song/o-que-vao-dizer-as-cartas-voice.mp3");
+		sleep(2000);
+		
+		if(botao.getText().equals("0")) {
+			
+			JOptionPane.showMessageDialog(null, "QUE PENA NENHUMA ALTERNATIVA ERRADA SERÁ ELIMINADA!!");
+		}
+		setVisibleCartas(Boolean.FALSE);
+		
 	}
 	
 	private void setVisibleCartas(boolean visible) {
