@@ -90,6 +90,16 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private Button btnUniversitario3;
 	@FXML
 	private JFXButton btnuniversitarios;
+	@FXML
+	private JFXButton btnCartas;
+	@FXML
+	private Button btnCarta1;
+	@FXML
+	private Button btnCarta2;
+	@FXML
+	private Button btnCarta3;
+	@FXML
+	private Button btnCarta4;
 	
 	@FXML
 	private void fechar() {
@@ -104,8 +114,10 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		aplicarEventoButaoParar();
 		 aplicarEventoButaoPular(); 
 		 aplicarEventoCliqueBotaoUniversitarios();
+		 aplicarEventoCliqueCartas();
 	}
 	
+
 	private Jogador getJogador() {
 		return  jogadorService.listar()
 							.stream().reduce((jogador1,jogador2) -> jogador2).orElseThrow();
@@ -530,6 +542,23 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private void aplicarEventoCliqueBotaoUniversitarios() {
 		btnuniversitarios.setOnMouseClicked(evento->processarAjudaUniversitarios());
 	}
+	
+	private void aplicarEventoCliqueCartas() {
+		btnCartas.setOnMouseClicked(evento-> processarAjudaCartas());
+	}
+	
+	public void processarAjudaCartas() {
+		setVisibleCartas(Boolean.TRUE);
+		ControllerUtil.startVoice("src/main/resources/song/tire-a-carta-do-baralho-voice.mp3");
+	}
+	
+	private void setVisibleCartas(boolean visible) {
+		btnCarta1.setVisible(visible);
+		btnCarta2.setVisible(visible);
+		btnCarta3.setVisible(visible);
+		btnCarta4.setVisible(visible);
+	}
+	
 	public void processarAjudaUniversitarios() {
 		setVisibleUniversitarios(Boolean.TRUE);
 		

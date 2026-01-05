@@ -77,7 +77,7 @@
                   <Image url="@../img/universitario.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="26.0" layoutY="91.0" prefHeight="35.0" prefWidth="67.0" text="Cartas" textFill="#fff7f7">
+            <JFXButton fx:id="btnCartas" layoutX="26.0" layoutY="91.0" prefHeight="35.0" prefWidth="67.0" text="Cartas" textFill="#fff7f7">
                <font>
                   <Font size="16.0" />
                </font>
@@ -109,10 +109,10 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="414.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" />
-      <Button layoutX="671.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" />
-      <Button layoutX="577.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" />
-      <Button layoutX="491.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" />
+      <Button fx:id="btnCarta1" layoutX="414.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" />
+      <Button fx:id="btnCarta2" layoutX="671.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" />
+      <Button fx:id="btnCarta3" layoutX="577.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" />
+      <Button fx:id="btnCarta4" layoutX="491.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" />
       <Label layoutX="376.0" layoutY="339.0" text="R$ Acertar:" textFill="#fcf8f8">
          <font>
             <Font name="System Bold" size="15.0" />
