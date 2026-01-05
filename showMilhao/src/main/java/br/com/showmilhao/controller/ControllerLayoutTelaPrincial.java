@@ -36,6 +36,11 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	private int pontuacaoParar;
 	private int pulos = 3;
 	
+	private String respostaBtn1;
+	private String respostaBtn2;
+	private String respostaBtn3;
+	private String respostaBtn4;
+	
 	public ControllerLayoutTelaPrincial() {
 		jogadorService = new JogadorService();
 		perguntaService = new PerguntaService();
@@ -190,7 +195,35 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		
 	}
 	private void setFlagRespostaCerta(String resposta) {
-		
+		if (resposta.equals("respostaBtn1")) {
+			respostaBtn1 = "certo";
+			respostaBtn2= "errado";
+			respostaBtn3 = "errado";
+			respostaBtn4 = "errado";
+
+		}
+		if (resposta.equals("respostaBtn2")) {
+			respostaBtn1 = "errado";
+			respostaBtn2= "certo";
+			respostaBtn3 = "errado";
+			respostaBtn4 = "errado";
+
+
+		}
+		if (resposta.equals("respostaBtn3")) {
+			respostaBtn1 = "errado";
+			respostaBtn2= "errado";
+			respostaBtn3 = "certo";
+			respostaBtn4 = "errado";
+
+		}
+		if (resposta.equals("respostaBtn4")) {
+			respostaBtn1 = "errado";
+			respostaBtn2= "errado";
+			respostaBtn3 = "errado";
+			respostaBtn4 = "certo";
+
+		}
 	}
 	private void aplicarEventoAlternativaErrada(List<Button> butoes,Button botaoAlternativaCorreta) {
 		butoes.forEach(b->b.setOnMouseClicked(evento-> tratarAlternativaErrada(botaoAlternativaCorreta)));
