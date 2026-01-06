@@ -109,10 +109,10 @@
             </Label>
          </children>
       </Pane>
-      <Button fx:id="btnCarta1" layoutX="414.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" />
-      <Button fx:id="btnCarta2" layoutX="671.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" />
-      <Button fx:id="btnCarta3" layoutX="577.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" />
-      <Button fx:id="btnCarta4" layoutX="491.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" />
+      <Button fx:id="btnCarta1" layoutX="414.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" styleClass="card" />
+      <Button fx:id="btnCarta2" layoutX="671.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" styleClass="card"/>
+      <Button fx:id="btnCarta3" layoutX="577.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" styleClass="card"/>
+      <Button fx:id="btnCarta4" layoutX="491.0" layoutY="249.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="67.0" visible="false" styleClass="card"/>
       <Label layoutX="376.0" layoutY="339.0" text="R$ Acertar:" textFill="#fcf8f8">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -181,26 +181,6 @@
       <Label fx:id="labelParar" layoutX="441.0" layoutY="384.0" prefHeight="21.0" prefWidth="208.0" textFill="#fcf8f8">
          <font>
             <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="17.0" layoutY="382.0" prefHeight="21.0" prefWidth="28.0" text="1" textFill="#e8e5e5">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="14.0" layoutY="488.0" prefHeight="21.0" prefWidth="28.0" text="3" textFill="#e8e5e5">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="14.0" layoutY="543.0" prefHeight="21.0" prefWidth="28.0" text="4" textFill="#e8e5e5">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="13.0" layoutY="433.0" prefHeight="21.0" prefWidth="28.0" text="2" textFill="#e8e5e5">
-         <font>
-            <Font size="17.0" />
          </font>
       </Label>
    </children>

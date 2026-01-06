@@ -156,6 +156,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 	
 	private void processarPerguntas(String nivel) {
 		setVisibleUniversitarios(Boolean.FALSE);
+		setVisibleAlternativas(Boolean.TRUE);
 		
 		List<Pergunta> perguntas = perguntaService.listar(getIdPerguntasFeitas(), nivel);
 		perguntas.forEach(p->{
@@ -582,9 +583,14 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 			
 		}else if(botao.getText().equals("2")) {
 			JOptionPane.showMessageDialog(null, "APENAS 2 ALTERNATIVA ERRADA SERÁ ELIMINADA!!");
+			getAlternativaRespostaBtn(getRespostaBtnErradas().get(0)).setVisible(Boolean.FALSE);
+			getAlternativaRespostaBtn(getRespostaBtnErradas().get(1)).setVisible(Boolean.FALSE);
 		}
 		else if(botao.getText().equals("3")) {
 			JOptionPane.showMessageDialog(null, "APENAS 3 ALTERNATIVA ERRADA SERÁ ELIMINADA!!");
+			getAlternativaRespostaBtn(getRespostaBtnErradas().get(0)).setVisible(Boolean.FALSE);
+			getAlternativaRespostaBtn(getRespostaBtnErradas().get(1)).setVisible(Boolean.FALSE);
+			getAlternativaRespostaBtn(getRespostaBtnErradas().get(2)).setVisible(Boolean.FALSE);
 			
 		}
 		setVisibleCartas(Boolean.FALSE);
@@ -614,6 +620,9 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 		respostaBtnMap.put("respostaBtn3", respostaBtn3);
 		respostaBtnMap.put("respostaBtn4", respostaBtn4);
 		return respostaBtnMap;
+	}
+	private void setVisibleAlternativas(boolean visible) {
+		Arrays.asList(btnAlternativa1,btnAlternativa2,btnAlternativa3,btnAlternativa4).forEach(btn -> btn.setVisible(visible));
 	}
 	
 	private List<String> getRespostaBtnErradas(){

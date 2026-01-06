@@ -200,3 +200,26 @@ Pane#help {
     -fx-background-size: 120px 64px;
     -fx-effect: innershadow(gaussian, rgba(0,0,0,0.7), 15, 0, 0, 15);
 }
+
+.button.card {
+  -fx-min-height: 71px;
+  -fx-min-width: 50px;
+  -fx-background-image: url("../img/carta.png");
+  -fx-background-size: 60px 69px;
+  
+}
+
+
+.button.card:hover {
+    -fx-effect: innershadow( gaussian, rgba(0,0,0,0.3), 20, 0, 0, 20);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 0, 0, 0, 10);
+}
+
+
+.button.card:pressed {
+  -fx-background-size: 60px 69px;
+  -fx-min-height: 71px;
+  -fx-min-width: 50px;
+  -fx-effect: innershadow( gaussian, rgba(0,0,0,0.3), 10, 0, 0, 10);
+}
+
