@@ -587,7 +587,7 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 			getAlternativaRespostaBtn(getRespostaBtnErradas().get(1)).setVisible(Boolean.FALSE);
 		}
 		else if(botao.getText().equals("3")) {
-			JOptionPane.showMessageDialog(null, "APENAS 3 ALTERNATIVA ERRADA SERÁ ELIMINADA!!");
+			JOptionPane.showMessageDialog(null, "OBA TODAS AS ALTERNATIVA ERRADA SERÃO ELIMINADA!!");
 			getAlternativaRespostaBtn(getRespostaBtnErradas().get(0)).setVisible(Boolean.FALSE);
 			getAlternativaRespostaBtn(getRespostaBtnErradas().get(1)).setVisible(Boolean.FALSE);
 			getAlternativaRespostaBtn(getRespostaBtnErradas().get(2)).setVisible(Boolean.FALSE);
