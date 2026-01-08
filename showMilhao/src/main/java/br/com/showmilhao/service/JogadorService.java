@@ -2,6 +2,8 @@ package br.com.showmilhao.service;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import br.com.showmilhao.dao.JogadorDao;
 import br.com.showmilhao.model.Jogador;
 
@@ -28,6 +30,7 @@ public class JogadorService {
 	}
 	
 	public void zerarRanking() {
+		JOptionPane.showMessageDialog(null,"O Ranking de Jogadores foi Limpo!!!");
 		dao.zerarRanking();
 	}
 	

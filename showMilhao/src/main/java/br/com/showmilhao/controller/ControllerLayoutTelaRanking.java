@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import com.jfoenix.controls.JFXButton;
 
 import br.com.showmilhao.model.JogadorTable;
@@ -26,6 +28,7 @@ public class ControllerLayoutTelaRanking implements Initializable {
 	
 	private static final String  LAYOUT_TELA_INICIAL = "/view/LayoutTelaInicial.fxml";
 	private static final String  CSS = "/css/ButtonStyle.css";
+	private static final String MENSAGEM_CONFIRMACAO = "Deseja Zerar o Ranking?";
 	
 	private JogadorService jogadorService;
 	
@@ -60,22 +63,21 @@ public class ControllerLayoutTelaRanking implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		tblClmNome.setResizable(false);
-		tblClmPontuacao.setResizable(false);
-		tblClmPosicao.setResizable(false);
-		
-		tblClmPontuacao.setCellValueFactory(new PropertyValueFactory<>("pontuacaoTable"));
-		tblClmNome.setCellValueFactory(new PropertyValueFactory<>("nomeTabela"));
-		tblClmPosicao.setCellValueFactory(new PropertyValueFactory<>("linhaTabela"));
-		
-		ObservableList<JogadorTable> jogadorTable = FXCollections.observableArrayList(mostrarRankingView());
-		
-		tblRanking.setItems(jogadorTable);
+		setResisable(Boolean.FALSE);
+		processarJogadoresTable();
 	}
 	
 	@FXML
 	private void limparRanking(ActionEvent e) {
 		
+		setResisable(Boolean.FALSE);
+		int result = JOptionPane.showConfirmDialog(null, MENSAGEM_CONFIRMACAO);
+		
+		if(result == JOptionPane.YES_OPTION) {
+			jogadorService.zerarRanking();
+			processarJogadoresTable();
+			btnLimpar.setVisible(false);
+		}
 	}
 	
 	private List<JogadorTable> mostrarRankingView(){
@@ -97,6 +99,23 @@ public class ControllerLayoutTelaRanking implements Initializable {
 	@FXML
 	private void voltar(ActionEvent event) throws IOException {
 		ControllerUtil.changeLayout(getClass(), LAYOUT_TELA_INICIAL, CSS);
+		
+	}
+	
+	private void processarJogadoresTable() {
+		tblClmPontuacao.setCellValueFactory(new PropertyValueFactory<>("pontuacaoTable"));
+		tblClmNome.setCellValueFactory(new PropertyValueFactory<>("nomeTabela"));
+		tblClmPosicao.setCellValueFactory(new PropertyValueFactory<>("linhaTabela"));
+		
+		ObservableList<JogadorTable> jogadorTable = FXCollections.observableArrayList(mostrarRankingView());
+		
+		tblRanking.setItems(jogadorTable);
+	}
+	
+	private void setResisable(boolean visible) {
+		tblClmNome.setResizable(visible);
+		tblClmPontuacao.setResizable(visible);
+		tblClmPosicao.setResizable(visible);
 		
 	}
 
