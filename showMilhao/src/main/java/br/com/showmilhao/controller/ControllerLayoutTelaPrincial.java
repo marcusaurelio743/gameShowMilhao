@@ -170,26 +170,14 @@ public class ControllerLayoutTelaPrincial implements Initializable {
 			idsPerguntasFeitas.add(p.getId());
 			btnEnumciado.setText(p.getEnumciado());
 			
-			/*List<Button> botoesRandomizados = Arrays.asList(btnAlternativa1,btnAlternativa2,btnAlternativa3,btnAlternativa4);
+			List<Button> botoesRandomizados = Arrays.asList(btnAlternativa1,btnAlternativa2,btnAlternativa3,btnAlternativa4);
+			
+			Collections.shuffle(botoesRandomizados);
 			
 			botoesRandomizados.get(0).setText(p.getAlter1());
 			botoesRandomizados.get(1).setText(p.getAlter2());
 			botoesRandomizados.get(2).setText(p.getAlter3());
 			botoesRandomizados.get(3).setText(p.getResp());
-			
-			Collections.shuffle(botoesRandomizados);*/
-			
-			List<String> alternativas = new ArrayList<String>();
-			alternativas.add(p.getAlter1());
-			alternativas.add(p.getAlter2());
-			alternativas.add(p.getAlter3());
-			alternativas.add(p.getResp());
-			Collections.shuffle(alternativas);
-			 
-			 btnAlternativa1.setText(alternativas.get(0));
-			 btnAlternativa2.setText(alternativas.get(1));
-			 btnAlternativa3.setText(alternativas.get(2));
-			 btnAlternativa4.setText(alternativas.get(3));
 			
 			
 			if(btnAlternativa1.getText().equals(p.getResp())) {
