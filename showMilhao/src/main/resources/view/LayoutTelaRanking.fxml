@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.showmilhao.controller.ControllerLayoutTelaNome">
+<AnchorPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.showmilhao.controller.ControllerLayoutTelaRanking">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -33,7 +33,7 @@
          </font>
       </Label>
       <Button layoutX="141.0" layoutY="500.0" mnemonicParsing="false" onAction="#voltar" styleClass="defaultButton" text="Voltar" />
-      <Button layoutX="529.0" layoutY="503.0" mnemonicParsing="false" onAction="#startGame" styleClass="defaultButton" text="Limpar Ranking" />
+      <Button layoutX="529.0" layoutY="503.0" mnemonicParsing="false" onAction="#limparRanking" styleClass="defaultButton" text="Limpar Ranking" />
       <TableView layoutX="83.0" layoutY="160.0" prefHeight="301.0" prefWidth="674.0">
         <columns>
           <TableColumn prefWidth="134.0" text="Posição" />
