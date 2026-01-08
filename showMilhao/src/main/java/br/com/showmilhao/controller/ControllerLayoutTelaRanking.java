@@ -11,12 +11,15 @@ import com.jfoenix.controls.JFXButton;
 import br.com.showmilhao.model.JogadorTable;
 import br.com.showmilhao.service.JogadorService;
 import br.com.showmilhao.util.ControllerUtil;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 public class ControllerLayoutTelaRanking implements Initializable {
@@ -57,7 +60,17 @@ public class ControllerLayoutTelaRanking implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		mostrarRankingView();
+		tblClmNome.setResizable(false);
+		tblClmPontuacao.setResizable(false);
+		tblClmPosicao.setResizable(false);
+		
+		tblClmPontuacao.setCellValueFactory(new PropertyValueFactory<>("pontuacaoTable"));
+		tblClmNome.setCellValueFactory(new PropertyValueFactory<>("nomeTabela"));
+		tblClmPosicao.setCellValueFactory(new PropertyValueFactory<>("linhaTabela"));
+		
+		ObservableList<JogadorTable> jogadorTable = FXCollections.observableArrayList(mostrarRankingView());
+		
+		tblRanking.setItems(jogadorTable);
 	}
 	
 	@FXML
